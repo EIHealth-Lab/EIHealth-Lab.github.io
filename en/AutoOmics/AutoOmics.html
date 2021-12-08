@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AutoOmics &mdash; autogenome 1.0 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="autogenome 1.0 文档" href="../index.html"/>
+        <link rel="next" title="AutoGGN" href="../AutoGGN/AutoGGN.html"/>
+        <link rel="prev" title="AutoGenome" href="../AutoGenome/AutoGenome.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> autogenome
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../AutoGenome/AutoGenome.html">AutoGenome</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">AutoOmics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#autoomics-introduction">AutoOmics-Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method">Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoGGN/AutoGGN.html">AutoGGN</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">autogenome</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>AutoOmics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/AutoOmics/AutoOmics.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="autoomics">
+<span id="autoomics"></span><h1>AutoOmics<a class="headerlink" href="#autoomics" title="永久链接至标题">¶</a></h1>
+<div class="section" id="autoomics-introduction">
+<span id="autoomics-introduction"></span><h2>AutoOmics-Introduction<a class="headerlink" href="#autoomics-introduction" title="永久链接至标题">¶</a></h2>
+<p>AutoOmics is a novel multi-omics integration approach. It can efficiently integrate information from different omics data. AutoOmics provides a convenient framework to help researchers to build the best multi-model deep neural networks for their researches.</p>
+<div class="section" id="background">
+<span id="background"></span><h3>Background<a class="headerlink" href="#background" title="永久链接至标题">¶</a></h3>
+<p>With the development of sequencing technologies, researchers have extended the large scale whole genome profiling experiments from genomics to epigenetics, proteomics and metabolics. To obtain whole omics profiling data from a single sample or individual is more and more popular in biomedical researches. It helps researchers to extract evidences from different molecular system levels, to explore and understand the underlying biological mechanisms. For example, in cancer research, researchers need to confirm evidences from cancer cell gene expression, gene mutations, gene copy number variations and gene methylations to form a proper hypothesis, tools like oncoplot is developed to help visualize and analyze the multi-omics data.</p>
+<p>Deep learning is very promising in solving problems in omics research, such as genomics, epigenomics, proteomics, and metabolics. The design of neural network architecture is very important in modeling omics data against different scientific problems. Residual fully-connected neural network (RFCN) was proposed to provide better neural network architectures for modeling omics data. The next challenge for omics research is how to integrate information from different omics data using deep learning, so that information from different molecular system levels could be combined to predict the target.</p>
+<p>The simplest way to integrate multi-omics data is to concatenate all the omics data as the input to the DNN. For example, DeepSynergy concatenates fingerprints of molecular structures of chemicals and omics data of cancer cell lines directly as input for the Multi-layer perception (MLP) neuron network. The problem is that the data distribution of different omics data vary a lot, some omics data even have different data types, which makes the DNN difficult to fit a good model.</p>
+<p>The proposal of residual fully-connected neural network (RFCN) implemented in AutoGenome have shown us a good framework to model the single-omics data, we want to go further to extend it to multi-omics research, by considering a. the advantage of RFCN neural network architectures; b. the AutoML features from AutoGenome; c. novel multi-model approaches to integrate different multi-omics data. AutoOmics is developed for this purpose, users specify the location of the input omics data and the learning targets, AutoML is then used to train the DNN model automatically, after an optimal model is trained, model interpretation module will be used to explain the influence of each gene to the learning targets. AutoOmics supports both regression and classification tasks, it doesn&#8217;t require the users to master tensorflow or pytorch to start with.</p>
+</div>
+<div class="section" id="method">
+<span id="method"></span><h3>Method<a class="headerlink" href="#method" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>Collecting multi-omics data. Take multi-omics data of 4 data types as example, a gene expression matrix, a gene mutation matrix, a copy number variation (CNV) matrix and a DNA methylation matrix.</li>
+</ul>
+<ul class="simple">
+<li>Use each single-type omics data respectively as input to train a model for the learning targets. Four network structure classes (MLP, ResNet, DenseNet and ENAS), numbers of layers, numbers of neurons per layer and hyperparameter combinations (batch size, learning rate and optimizers) was performed to search for a model with the highest performance evaluation scores as optimal single-omics models for this single-type omics data. Then, weights of the all optimal models were fixed, and stopped updating in the following steps.</li>
+</ul>
+<ul class="simple">
+<li>Concatenate latent layers from all the optimal single-omics models. Here we chose all the last latent layers and extract the corresponding vector values into a concatenated vector as the input for Step 4.</li>
+</ul>
+<ul class="simple">
+<li>Use the concatenated vector as input to train a model for the learning targets again. Same to the process in Step 2, search for optimal multi-omics model. Then, weights of this optimal model was fixed. All the optimal single-omics (from Step 2) and multi-omics (from Step 4) models were combined together into a whole network, as the final AutoOmics-based AI model.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="appendix">
+<span id="appendix"></span><h2>Appendix<a class="headerlink" href="#appendix" title="永久链接至标题">¶</a></h2>
+<p>Paper of AutoOmics：<a class="reference external" href="https://doi.org/10.1016/j.ailsci.2021.100012">AutoOmics: New Multimodal Approach for Multi-Omics Research AutoOmics</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../AutoGGN/AutoGGN.html" class="btn btn-neutral float-right" title="AutoGGN" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../AutoGenome/AutoGenome.html" class="btn btn-neutral" title="AutoGenome" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2021, Huawei.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

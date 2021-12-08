@@ -1,0 +1,1930 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AutoGenome &mdash; autogenome 1.0 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="autogenome 1.0 文档" href="../index.html"/>
+        <link rel="next" title="AutoOmics" href="../AutoOmics/AutoOmics.html"/>
+        <link rel="prev" title="Welcome to autogenome’s documentation!" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> autogenome
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">AutoGenome</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#autogenome">AutoGenome介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">主要特性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">快速开始</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#config">Config文件配置详解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autogenome">AutoGenome在华为云上使用教程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelartsautogenome">在ModelArts平台使用AutoGenome</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-1">Step 1: 登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-2-modelarts">Step 2: 进入ModelArts开发环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-3-notebook">Step 3: 选择NoteBook的规格</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-4-notebook">Step 4: 启动NoteBook环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-5-autogenomeai">Step 5:  使用AutoGenome端到端进行AI建模</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-6-autogenome">Step 6: 上传自己的数据体验AutoGenome</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#autogenome">在医疗智能体平台使用AutoGenome</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-1">Step 1: 登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-2-notebook">Step 2: 创建Notebook开发环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-3-notebookautogenome">Step 3: 打开Notebook中AutoGenome案例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-4-autogenomeai">Step 4: 使用AutoGenome端到端进行AI建模</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-5-autogenome">Step 5: 上传自己的数据体验AutoGenome</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mlp">MLP案例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rfcn-resnet">RFCN-ResNet案例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rfcn-densenet">RFCN-DenseNet案例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rrfcn-enas">RRFCN（ENAS的变体）案例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#res-vae">Res-VAE案例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">附录</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoOmics/AutoOmics.html">AutoOmics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoGGN/AutoGGN.html">AutoGGN</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">autogenome</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>AutoGenome</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/AutoGenome/AutoGenome.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="autogenome">
+<span id="autogenome"></span><h1>AutoGenome<a class="headerlink" href="#autogenome" title="永久链接至标题">¶</a></h1>
+<div class="section" id="autogenome">
+<span id="id1"></span><h2>AutoGenome介绍<a class="headerlink" href="#autogenome" title="永久链接至标题">¶</a></h2>
+<p>AutoGenome是一个利用AutoML等技术帮助科研工作者在基因组学数据上端到端实现深度学习网络搜索，训练，评估，预测和解释的工具包。</p>
+<div class="section" id="">
+<span id="id2"></span><h3>背景<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>深度学习在计算机视觉（CV），自然语言处理（NLP）和语音处理等传统领域中取得了巨大的成功。这些成就极大地鼓舞了基因组的研究人员，尝试使用深度学习技术来解决基因组学的研究问题越来越受欢迎。</p>
+<p>但是，基因组学的数据是比较特殊的，跟图像和文本等数据有着明显不同。基因组学数据包括RNA表达值，基因突变状态或来自全基因组的基因拷贝数变异等。传统流行的CNN或RNN网络在此数据的应用是无效的，因为数据中没有空间或时间关系。基因组学数据有其特殊性。几个基因之间可能存在彼此的相互作用，包括激活和抑制，并能组成结构化的层次网络来实现调节生物学的功能。由于基因特征很多，基因之间的关系变得尤为复杂，针对一个研究问题，基因的更多地是非线性，存在交互的作用；并且是一个高纬度的复杂数据问题。而深度学习神经网络对于特征的抽象，以及非线性作用和高维数据的处理，存在一定的优势。</p>
+<p>在基因组学研究中，大多数研究者都出自生物学背景，所应用的神经网络结构常常局限于手工设计。在AutoML使用越来越紧密的今天，研究领域同样也驱动着面向医疗基因组学领域的AutoML系统，而AutoGenome正是在这个背景下诞生的。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>主要特性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>针对基因组学的数据，MLP（Multilayer Perceptron）结构引起简单灵活的特点常常被使用。AutoGenome有MLP网络结构的搜索策略，通过设定网络层数以及隐藏层神经元个数的搜索空间，通过MoXing的超参搜索方法，根据候选网络结构的表现选出最优的网络结构。</li>
+</ul>
+<ul class="simple">
+<li>受ResNet和DenseNet的启发，AutoGenome将跳跃连接引入到基因组学数据中。根据AutoML中CASH的想法（Combined Algorithm Selection and Hyperparameter optimization）把模型选择和超参调优合并为同一个问题，把ResNet和Densenet网络的网络结构通过超参搜索的方式来进行选择，从而可以针对不同的数据选出较优的网络结构。</li>
+</ul>
+<ul class="simple">
+<li>MLP、ResNet和DenseNet都是基于网络结构的一定先验知识，并且搜索空间仅限于超参搜索中Grid Search的方式；为了使得搜索空间具有更强的灵活性，AutoGenome引入了ENAS（Efficient Neural Architecture Search）。ENAS是NAS的一种，因其创新地把网络结构的参数进行了共享使得，神经网络结构搜索的效率大大得到提升，克服了NAS算力成本巨大而耗时的缺陷。NAS通过强化学习的策略，通过优化策略优化产生子模型结构的控制器模型-LSTM。LSTM模型能够根据预先设定的子模型的网络层数，生成子模型的每一层的大小，以及其中的跳跃了解情况。传统的ENAS结构采用的候选算子常常包括各种卷积等操作，AutoGenome将算子简化为全连接操作，使其能适用于基因组学的数据。</li>
+</ul>
+<ul class="simple">
+<li>MLP，ResNet， DenseNet 和 ENAS  都是属于监督学习的领域，并且能应用于回归和分类的问题。但除此之外，在生物基因领域，由于数据的维度高，降维等非监督学习也经常被使用。因此AutoGenome在传统VAE的基础上，通过添加跳跃连接，实现了残差全连接VAE网络（residual fully-connected variational auto-encoder， Res-VAE）。在传统的VAE体系中, 编码器通过减少后面每层网络神经元的数量将输入压缩为较小维度的隐变量，解码器从隐变量出发通过增加每层神经元数量的方式重建输入数据。 Res-VAE在编码器和解码器上都添加了跳跃连接，使得网络结构更加多变和灵活。通过最小化重建误差和Kullback-Leibler散度（KLD）误差的总和，Res-VAE从原始数据中学习数据的本质特征，而这些特征存储在隐变量里面，从而实现了降维的目的，也可以用于后续进一步分析。</li>
+</ul>
+<ul class="simple">
+<li>在医疗领域中， 科研工作者已经不仅仅满足于模型的效果， 医疗的特殊性使得人们对模型效果的原因产生了更多的思考。深度神经网络的可解释性使得人工智能应用在严谨的医疗领域受限，结果难以解释也让注重因果推断的科学研究无法迅速把深度神经网络应用起来。因此医疗领域的模型可解释性必不可少。如何洞察神经网络模型的黑匣子？目前很多前沿研究已经开展了很多这方面的工作。SHAP(SHapley Additive exPlanations)采用合作博弈的贡献和收益分配来量化每个特征对模型所作出的贡献。为了方便研究人员研究深度学习模型，我们将SHAP的引入了AutoGenome。给定深度学习模型，SHAP将计算每个特征对整体预测的边际贡献，称为SHAP值54。 AutoGenome可以可视化每个基因对预测类别的特征重要性，或每个基因对预测类别的SHAP值分布。这些结果的可视化为深度学习模型可解释性提供了有意义的见解。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>快速开始<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id5"></span><h3>安装<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span></span><span class="c1"># Setup environment using conda, env_gpu.yml for GPU server</span>
+conda env create -f env.yml
+conda activate autogenome
+
+<span class="c1">#get test data and install autogenome package</span>
+wget https://github.com/EiHealth/EiHealth.github.io/blob/master/data/little_exp.tsv --no-check-certificate
+wget https://github.com/EiHealth/EiHealth.github.io/blob/master/data/little_learning_target.tsv --no-check-certificate
+pip install autogenome*.whl
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">autogenome</span> <span class="k">as</span> <span class="nn">ag</span>
+
+<span class="c1"># create automl instance from a default config file</span>
+<span class="n">automl</span><span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">auto</span><span class="p">()</span>
+
+<span class="c1"># or from a user-defined config file</span>
+<span class="n">automl</span><span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+
+<span class="c1"># train to get the best hyperparameters and a trained model</span>
+<span class="n">automl</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+<span class="c1"># evaluate </span>
+<span class="n">automl</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+
+<span class="c1"># predict</span>
+<span class="n">automl</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+
+<span class="c1"># interprete</span>
+<span class="n">automl</span><span class="o">.</span><span class="n">explain</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="config">
+<span id="config"></span><h2>Config文件配置详解<a class="headerlink" href="#config" title="永久链接至标题">¶</a></h2>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;exp1&quot;,        // Project name
+
+  &quot;model&quot;: {
+    &quot;type&quot;: &quot;ResNet&quot;,        // [MLP/ResNet/densnet/VAE/enas]
+    &quot;args&quot;: {
+        &quot;output_classes&quot;: 5,        // Args for Supervised classs
+        &quot;is_regression&quot;: false,        //[true/false] whether running a regression
+        &quot;multi_tasks&quot;: false        //[true/false] whether running a multi_tasks regression
+    }                
+  },
+
+  &quot;data_train&quot;: {        //Needed in automl.train()
+        &quot;type&quot;: &quot;DataLoader&quot;,        //[DataLoader/BigDataLoader] Selecting data loader, using BigDataLoader when data file is big
+        &quot;args&quot;:{
+            &quot;data_dir&quot;: &quot;/autogenome/data/&quot;,        //Dataset path
+            &quot;features_file&quot;: &quot;little_exp.tsv&quot;,        //Features file name
+            &quot;labels_file&quot;: &quot;little_learning_target.tsv&quot;,        //Labels file name
+            &quot;validation_split&quot;: 0.2,        //Size of validation dataset, float(portion) 
+            &quot;shuffle&quot;: true,        //Shuffle training data before splitting
+            &quot;validation_features&quot;: null,        //Validation features file name, needed when validation_split is null
+            &quot;validation_labels&quot;: null
+        }
+    },
+
+  &quot;data_evaluate&quot;: {                                        //Needed in automl.evaluate()
+        &quot;type&quot;: &quot;DataLoader&quot;,
+        &quot;args&quot;: {
+            &quot;data_dir&quot;: &quot;/autogenome/data/&quot;,
+            &quot;features_file&quot;: &quot;little_exp.tsv&quot;,
+            &quot;labels_file&quot;: &quot;little_learning_target.tsv&quot;
+        }
+    },
+
+  &quot;data_predict&quot;: {        //Needed in automl.predict()
+        &quot;type&quot;: &quot;DataLoader&quot;,
+        &quot;args&quot;: {
+            &quot;data_dir&quot;: &quot;/autogenome/data/&quot;,
+            &quot;features_file&quot;: &quot;little_exp.tsv&quot;,
+
+        }
+    },
+
+  &quot;input_fn&quot;: {
+        &quot;capacity&quot;: 50000,        //An integer. The maximum number of elements in the queue.
+        &quot;enqueue_many&quot;: true,        //Whether each tensor in `tensor_list` is a single example.
+        &quot;min_after_dequeue&quot;: 0,        //Minimum number elements in the queue after a dequeue, used to ensure a level of mixing of elements.
+        &quot;num_threads&quot;: 16,         //The number of threads enqueuing `tensor_list`.
+        &quot;seed&quot;:0,        //Seed for the random shuffling within the queue.
+        &quot;allow_smaller_final_batch&quot;:true        //(Optional) Boolean. If `True`, allow the final batch to be smaller if there are insufficient items left in the queue.
+
+    },
+
+ // [&quot;trainer&quot;]for MLP/ResNet/DenseNet/res-VAE
+  &quot;trainer&quot;: {
+        &quot;hyper_selector&quot;: true,        // Whether to use hyper_selector or not
+        &quot;batch_size&quot;: 64,        //Batch_size
+        &quot;save_dir&quot;: &quot;experiments/&quot;,        // Dir to save models, logs and output files
+        &quot;monitor&quot;: &quot;accuracy&quot;,        // [accuracy/loss] A Tensor. Quantity to be monitored
+        &quot;selected_mode&quot;: &quot;max&quot;,       //[min/max] mode to select best model when monitor is bigger[max] or smaller[min]
+        &quot;num_gpus&quot;: 1,        // Num_gpus
+        &quot;evaluate_every_n_epochs&quot;: 1,        //Trigger the evaluation after running n epochs of training.
+        &quot;min_delta&quot;: 0.001,        //Minimum change in the monitored quantity to qualify as an improvement, i.e. an absolute change of less than min_delta, will count as no improvement.
+        &quot;patience&quot;: 10,        //Number of epochs with no improvement after which learning rate will be decayed.
+        &quot;decay_lr&quot;: 10,        //Learning rate is decayed by dividing `decay_lr` when no improvement is detected.
+        &quot;decay_min_delta&quot;: 0.001,        //Minimum change in the monitored quantity to qualify as an improvement between last monitored quantity and current monitored quantity with different learning rate.
+        &quot;decay_patience&quot;: 1,         //Number of times with decaying learning rate after which training will be stopped.
+        &quot;pre_train_epoch&quot;: 10,        // epoches for hyperparams tunning
+        &quot;select_by_eval&quot;: true,         //Select best hyper-parameters by eval metric or by train metric. Default is False.
+        &quot;max_steps&quot;: 64000,         // Steps for training, will be changed into epoches
+        &quot;auto_batch&quot;: false,         //If True, an extra dimension of batch_size will be expanded to the first dimension of the return value from get_split. Default to True.
+        &quot;log_every_n_steps&quot;: 10,        //Logging every n steps. Default is 10.
+        &quot;save_model_secs&quot;: 0,    // The frequency, in seconds, that a checkpoint is saved using a default checkpoint saver.  `save_model_steps` will added. If both are provided, then only `save_model_secs` is used. Default 600.
+        &quot;init_learning_rate&quot;: 0.0001,        // Init rate while hyperparamter search, if set `null`, the init rate will calculated automatically
+        &quot;end_learning_rate&quot;: 0.1,        //End rate while hyperparamter search, if set `null`, the end rate will calculated automatically
+        &quot;loss&quot;: &quot;cross_entropy&quot;,         //[&quot;cross_entropy&quot;/&quot;focal_loss&quot;] using &quot;focal_loss&quot; when data are class imbalanced
+        &quot;selected_mode&quot;: &quot;max&quot;         //[&quot;max&quot;/&quot;min&quot;]  
+    },
+ // [&quot;trainer&quot;] for enas
+  &quot;trainer&quot;:{
+        &quot;child_num_layers&quot;: 6,        // set the model layers
+        &quot;log_every_n_steps&quot;: 10,        //Logging every n steps. Default is 10.
+        &quot;batch_size&quot;: 512,       
+        &quot;max_number_of_epoches_in_search&quot;: 500,        // num of epoches in search part
+        &quot;max_number_of_epoches_in_fixed&quot;: 200,        // num of epoches to train
+        &quot;top_k_candidates&quot;: 5,        // number of candidate saved from search and will be trained soon
+        &quot;child_lr_reg&quot;: 1e-4,         // the parameter of l2 regularization loss
+        &quot;max_search_channel&quot;: 1024,        // the max channel of search space      
+        &quot;save_dir&quot;: &quot;experiments/enas/&quot;
+  },
+
+
+  &quot;optimizer&quot;: {
+    &quot;type&quot;: &quot;Adam&quot;         //[adam/sgd/adadelta/adagrad/adamw/ftrl/momentum/rmsprop/kfac/dynamic_momentum/lamb]
+  },
+
+  // [&quot;evaluator&quot;] for  MLP/ResNet/DenseNet/res-VAE
+  &quot;evaluator&quot;: {
+        &quot;checkpoint_path&quot;: &quot;default&quot;,         // Checkpoint_path to restore
+        &quot;log_every_n_steps&quot;: 2,         //Logging every n steps.
+        &quot;output_every_n_steps&quot;: 1,        // Logging output every n steps.
+        &quot;max_number_of_steps&quot;: 100         // The max number of steps for evaluation
+        &quot;batch_size&quot;:64
+
+    },
+
+  // [&quot;evaluator&quot;] for  enas
+  &quot;evaluator&quot;:{
+        &quot;checkpoint_path&quot;: &quot;default&quot;,
+        &quot;log_every_n_steps&quot;: 1,
+        &quot;output_every_n_steps&quot;: 1,
+        &quot;max_number_of_steps&quot;: 30,
+        &quot;batch_size&quot;: 100,
+        &quot;arc&quot;: null         // The architecture of model, when checkpoint_path is not default
+  },
+
+  // [&quot;predictor&quot;] for  MLP/ResNet/DenseNet/res-VAE
+  &quot;predictor&quot;: {
+        &quot;checkpoint_path&quot;: &quot;default&quot;,
+        &quot;log_every_n_steps&quot;: 10,
+        &quot;output_every_n_steps&quot;: 1,
+        &quot;max_number_of_steps&quot;: 100, 
+        &quot;batch_size&quot;:64
+    },
+
+   // [&quot;predictor&quot;] for  enas
+   &quot;predictor&quot;：{
+        &quot;checkpoint_path&quot;: &quot;default&quot;,
+        &quot;log_every_n_steps&quot;: 1,
+        &quot;output_every_n_steps&quot;: 1,
+        &quot;max_number_of_steps&quot;: 300,
+        &quot;batch_size&quot;: 150,
+        &quot;arc&quot;: null        // The architecture of model, when checkpoint_path is not default
+    },
+
+  &quot;param_spec&quot;: {
+        &quot;type&quot;: &quot;origin_params&quot;,        // The init model params before hyperparameter search 
+        &quot;args&quot;: {
+            &quot;MLP&quot;: {
+                &quot;FC1_SIZE&quot;: 512,
+                &quot;FC2_SIZE&quot;: 512,
+                &quot;FC3_SIZE&quot;: 512,
+                &quot;FC4_SIZE&quot;: 512,
+                &quot;FC5_SIZE&quot;: 512,
+                &quot;FC6_SIZE&quot;: 512,
+                &quot;keep_prob&quot;: 0.8,
+                &quot;output_nonlinear&quot;: null
+            },                   // MLP model params, keep_prob is set into first laryer; output_nonlinear is set at the last layer
+            &quot;ResNet&quot;: {
+                &quot;n_latent&quot;: 128,
+                &quot;n_blocks&quot;: 2,
+                &quot;keep_prob&quot;: 0.8,
+                &quot;output_nonlinear&quot;: null
+            },                  // ResNet model params
+            &quot;DenseNet&quot;: {
+                &quot;growth_rate&quot;:32,
+                &quot;bn_size&quot;:16,
+                &quot;block_config&quot;: [2, 2, 2, 2],
+                &quot;keep_prob&quot;: 0.8,
+                &quot;output_nonlinear&quot;: null
+            },                  // DenseNet model params
+            &quot;VAE&quot;:{
+                &quot;keep_prob&quot;:0.6,
+                &quot;start_size&quot;:4096,
+                &quot;decay_ratio_list&quot;:[0.6, 0.8, 0.8, 0.8]
+            },                  // VAE model params
+            &quot;optimizer_param&quot;: {
+                &quot;best_lr&quot;: 0.001
+            }                           // Params for optimizer_param
+        }
+    },
+
+  &quot;hyper_param_spec&quot;: {
+        &quot;type&quot;: &quot;hyper_params&quot;,         // Select the model through performance in different combination.
+        &quot;args&quot;: {
+            &quot;MLP&quot;: {
+                &quot;FC1_SIZE&quot;: [ 64, 32, 16, 8],
+                &quot;FC2_SIZE&quot;: [ 64, 32, 16, 8],
+                &quot;FC3_SIZE&quot;: [ 64, 32, 16, 8],
+                &quot;FC4_SIZE&quot;: [ 64, 32, 16, 8],
+                &quot;FC5_SIZE&quot;: [ 64, 32, 16, 8],
+                &quot;FC6_SIZE&quot;: [ 64, 32, 16, 8],
+                &quot;keep_prob&quot;: [ 0.8, 1.0],
+                &quot;output_nonlinear&quot;: [null, &quot;relu&quot;, &quot;tanh&quot;, &quot;sigmoid&quot;]
+            },
+            &quot;ResNet&quot;: {
+                &quot;n_latent&quot;: [4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8],
+                &quot;n_blocks&quot;: [1, 2, 3, 5],
+                &quot;keep_prob&quot;: [0.2, 0.4, 0.6, 0.8, 1.0],
+                &quot;output_nonlinear&quot;: [null, &quot;relu&quot;, &quot;tanh&quot;, &quot;sigmoid&quot;]
+            },
+            &quot;DenseNet&quot;: {
+                &quot;growth_rate&quot;: [512, 256, 128, 64, 32, 16, 8],
+                &quot;bn_size&quot;: [16, 32],
+                &quot;block_config&quot;: [[2, 3, 4], [3, 4, 5]],
+                &quot;keep_prob&quot;: [0.2, 0.4, 0.6, 0.8, 1.0],
+                &quot;output_nonlinear&quot;: [null, &quot;relu&quot;, &quot;tanh&quot;, &quot;sigmoid&quot;]
+            },
+
+            &quot;VAE&quot;:{
+                &quot;keep_prob&quot;:[0.2, 0.4, 0.6, 0.8, 1.0],
+                &quot;start_size&quot;:[4096, 2048, 1024, 512, 256, 128, 64, 32], 
+                &quot;num_layers&quot;:[4,3],
+                &quot;decay_ratio&quot;:[0.6, 0.5]
+            }
+            &quot;optimizer_param&quot;: {
+
+            }
+        }
+        }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="autogenome">
+<span id="id7"></span><h2>AutoGenome在华为云上使用教程<a class="headerlink" href="#autogenome" title="永久链接至标题">¶</a></h2>
+<p>AutoGenome已经部署医疗智能体平台和华为云ModelArts平台，并可以公开访问。这份教程将端到端演示如何在这两个平台上使用AutoGenome。</p>
+<div class="section" id="modelartsautogenome">
+<span id="modelartsautogenome"></span><h3>在ModelArts平台使用AutoGenome<a class="headerlink" href="#modelartsautogenome" title="永久链接至标题">¶</a></h3>
+<p>目前AutoGenome在华为云ModelArts平台上可以公开访问。华为云注册用户可以使用免费的NoteBook服务来体验AutoGenome.(免费NoteBook提供1小时GPU使用时长，可以满足大部分基因组自动建模的任务。)</p>
+<p>下面展示在ModelArts平台使用免费NoteBook服务完成AutoGenome的端到端训练和推理过程。</p>
+<div class="section" id="step-1">
+<span id="step-1"></span><h4>Step 1: 登录<a class="headerlink" href="#step-1" title="永久链接至标题">¶</a></h4>
+<p>进入华为云 <a class="reference external" href="https://console.huaweicloud.com/modelarts/?region=cn-north-4&amp;locale=en-us#/dashboard">ModelArts</a> 平台登录界面，输入用户名和密码，点击  “<strong>登录</strong>”。如果没有ModelArts平台账号，请先注册。</p>
+<p><img alt="" src="../_images/tutorial_0.png" /></p>
+</div>
+<div class="section" id="step-2-modelarts">
+<span id="step-2-modelarts"></span><h4>Step 2: 进入ModelArts开发环境<a class="headerlink" href="#step-2-modelarts" title="永久链接至标题">¶</a></h4>
+<p>点击“<strong>开发环境</strong>”下拉窗口，在页面的顶部点击 “<strong>创建</strong>” 按钮创建一个新的NoteBook环境。</p>
+<p><img alt="" src="../_images/tutorial_1.png" /></p>
+</div>
+<div class="section" id="step-3-notebook">
+<span id="step-3-notebook"></span><h4>Step 3: 选择NoteBook的规格<a class="headerlink" href="#step-3-notebook" title="永久链接至标题">¶</a></h4>
+<p>在新的页面，填写NoteBook的名字，选择“Python2”，“GPU”；在“规格”选择“[Limited-time free] GPU:1*p100 CPU”， 然后点击“下一步”。</p>
+<p><img alt="" src="../_images/tutorial_2.png" /></p>
+<p>在接下来的页面中点击“提交”，创建NoteBook环境的过程。</p>
+<p><img alt="" src="../_images/tutorial_3.png" /></p>
+<p>.点击“返回Notebook列表”.</p>
+<p><img alt="" src="../_images/tutorial_4.png" /></p>
+</div>
+<div class="section" id="step-4-notebook">
+<span id="step-4-notebook"></span><h4>Step 4: 启动NoteBook环境<a class="headerlink" href="#step-4-notebook" title="永久链接至标题">¶</a></h4>
+<p>一般需要花费几秒钟的时间启动NoteBook环境。</p>
+<p><img alt="" src="../_images/tutorial_5.png" /></p>
+<p>当Notebook状态为 “<strong>运行中</strong>”， 可以点击“<strong>打开</strong>”按钮启动Notebook服务。</p>
+<p><img alt="" src="../_images/tutorial_6.png" /></p>
+<p>点击“Open JupyterLab”，将跳转到JupyterLab页面。</p>
+<p><img alt="" src="../_images/tutorial_7.png" /></p>
+</div>
+<div class="section" id="step-5-autogenomeai">
+<span id="step-5-autogenomeai"></span><h4>Step 5:  使用AutoGenome端到端进行AI建模<a class="headerlink" href="#step-5-autogenomeai" title="永久链接至标题">¶</a></h4>
+<p>在JupyterLab, 在“<strong>ModeArts Examples</strong>”中选择AutoGenome notebook例子，点击“<strong>Create a copy</strong>”，就能端到端运行AutoGenome的例子。</p>
+<p><img alt="" src="../_images/tutorial_8.png" /></p>
+</div>
+<div class="section" id="step-6-autogenome">
+<span id="step-6-autogenome"></span><h4>Step 6: 上传自己的数据体验AutoGenome<a class="headerlink" href="#step-6-autogenome" title="永久链接至标题">¶</a></h4>
+<p>使用JupyterLab，点击 “File Browser”菜单栏，使用“Upload”按钮上传自己的数据。如果数据大于100Mb,建议使用OBS上传 (https://support.huaweicloud.com/engineers-modelarts/modelarts_23_0105.html )。</p>
+<p><img alt="" src="../_images/tutorial_9.png" /></p>
+</div>
+</div>
+<div class="section" id="autogenome">
+<span id="id8"></span><h3>在医疗智能体平台使用AutoGenome<a class="headerlink" href="#autogenome" title="永久链接至标题">¶</a></h3>
+<p>华为医疗智能体是集基因组学探索、临床研究和药物发现等领域于一身的AI平台。下面展示在医疗智能体平台体验AutoGenome的端到端流程。</p>
+<div class="section" id="step-1">
+<span id="id9"></span><h4>Step 1: 登录<a class="headerlink" href="#step-1" title="永久链接至标题">¶</a></h4>
+<p>进入<a class="reference external" href="https://eihealth.ai/">医疗智能体</a>登录界面（这是一个演示网站，如果您所在公司或者组织购买了医疗智能体平台服务，将会是不同的网址），输入账户和密码后点击“<strong>确认</strong>”。</p>
+<p><img alt="" src="../_images/tutorial_10.png" /></p>
+</div>
+<div class="section" id="step-2-notebook">
+<span id="step-2-notebook"></span><h4>Step 2: 创建Notebook开发环境<a class="headerlink" href="#step-2-notebook" title="永久链接至标题">¶</a></h4>
+<p>点击“<strong>开发环境</strong>” – “<strong>代码集</strong>” – “<strong>AutoGenome-Examples</strong>” – “<strong>创建实例</strong>” 进入到Notebook页面。</p>
+<p><img alt="" src="../_images/tutorial_11.png" /></p>
+<p>填写创建Notebook所需的参数，点击 “<strong>立即创建</strong>”</p>
+<p><img alt="" src="../_images/tutorial_12.png" /></p>
+<p>Notebook服务创建成功后，点击“<strong>打开</strong>” 进入Notebook页面。</p>
+<p><img alt="" src="../_images/tutorial_13.png" /></p>
+</div>
+<div class="section" id="step-3-notebookautogenome">
+<span id="step-3-notebookautogenome"></span><h4>Step 3: 打开Notebook中AutoGenome案例<a class="headerlink" href="#step-3-notebookautogenome" title="永久链接至标题">¶</a></h4>
+<p>选择“AutoGenome_Example”。</p>
+<p><img alt="" src="../_images/tutorial_14.png" /></p>
+<p>文件夹将包含若干个例子，选择并进入其中一个文件夹</p>
+<p><img alt="" src="../_images/tutorial_15.png" /></p>
+<p>点击其中一个ipynb文件将打开AutoGenome的案例Notebook。</p>
+<p><img alt="" src="../_images/tutorial_16.png" /></p>
+</div>
+<div class="section" id="step-4-autogenomeai">
+<span id="step-4-autogenomeai"></span><h4>Step 4: 使用AutoGenome端到端进行AI建模<a class="headerlink" href="#step-4-autogenomeai" title="永久链接至标题">¶</a></h4>
+<p>Notebook将包含端到端使用AutoGenome的代码，案例覆盖了监督学习和非监督学习。使用者可以使用Notebook案例复现AutoGenome文章的结果。</p>
+<p><img alt="" src="../_images/tutorial_17.png" /></p>
+</div>
+<div class="section" id="step-5-autogenome">
+<span id="step-5-autogenome"></span><h4>Step 5: 上传自己的数据体验AutoGenome<a class="headerlink" href="#step-5-autogenome" title="永久链接至标题">¶</a></h4>
+<p>在工作目录中，点击“<strong>Upload</strong>”按钮。</p>
+<p><img alt="" src="../_images/tutorial_18.png" /></p>
+<p>选择自己的文件后，点击“<strong>Upload</strong>”上传指定的文件，并且根据Notebook案例用自己的数据体验AutoGenome</p>
+<p><img alt="" src="../_images/tutorial_19.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="mlp">
+<span id="mlp"></span><h2>MLP案例<a class="headerlink" href="#mlp" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="##配置文件">配置文件</a></li>
+<li><a class="reference external" href="##使用">使用</a></li>
+</ul>
+<p>MLP案例以一个二分类任务为例，<code class="docutils literal"><span class="pre">features</span></code>数据<code class="docutils literal"><span class="pre">little_exp.tsv</span></code>包含100个samples，23361个features。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; wc little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span>  <span class="c1"># 打印行数</span>
+<span class="m">100</span>
+&gt; sed -n <span class="s1">&#39;1,1p&#39;</span> little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print NF}&#39;</span>  <span class="c1"># 打印列数</span>
+<span class="m">23361</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">target</span></code>数据为两类，分别为70和30。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; grep -c <span class="m">0</span> little_learning_target.tsv
+<span class="m">70</span>
+&gt; grep -c <span class="m">1</span> little_learning_target.tsv
+<span class="m">30</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h3>配置文件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>首先，准备配置文件，具体如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>{
+    &quot;name&quot;: &quot;mlp_demo&quot;,   // Project name
+
+    &quot;model&quot;: {
+        &quot;type&quot;: &quot;MLP&quot;,
+        &quot;args&quot;: {
+            &quot;output_classes&quot;: 2}   // 分类数目
+    },
+
+    &quot;data_train&quot;: {
+        &quot;type&quot;: &quot;DataLoader&quot;,
+        &quot;args&quot;:{
+            &quot;data_dir&quot;: &quot;/data_autogenome/data_test&quot;,   //数据所在文件夹，推荐使用绝对路径
+            &quot;features_file&quot;: &quot;little_exp.tsv&quot;,  //features文件名
+            &quot;labels_file&quot;: &quot;little_learning_target.tsv&quot;,   //target文件名
+            &quot;validation_split&quot;: 0.2,   //验证集比例
+            &quot;shuffle&quot;: true,   //训练时是否对数据进行打乱操作
+            &quot;delimiter&quot;: &quot; &quot;   //数据分隔符，default: &#39;\t&#39;
+        }
+    },
+
+    &quot;data_evaluate&quot;: {
+        &quot;type&quot;: &quot;DataLoader&quot;,
+        &quot;args&quot;: {
+            &quot;data_dir&quot;: &quot;./data_autogenome/data_test&quot;,
+            &quot;features_file&quot;: &quot;little_exp.tsv&quot;,   //用于单独评估的features文件名
+            &quot;labels_file&quot;: &quot;little_learning_target.tsv&quot;,  //用于单独评估的target文件名
+            &quot;delimiter&quot;: &quot; &quot;
+        }
+    },
+
+    &quot;data_predict&quot;: {
+        &quot;type&quot;: &quot;DataLoader&quot;,
+        &quot;args&quot;: {
+            &quot;data_dir&quot;: &quot;./data_autogenome/data_test&quot;, 
+            &quot;features_file&quot;: &quot;little_exp.tsv&quot;,   //用于单独预测的features文件名
+            &quot;delimiter&quot;: &quot; &quot;
+        }
+    },
+
+    &quot;input_fn&quot;: {
+        &quot;num_threads&quot;: 16   //读取数据线程数
+    },
+
+    &quot;trainer&quot;: {
+        &quot;hyper_selector&quot;: true,   //[true/false]，是否进行超参搜索
+        &quot;batch_size&quot;: 64,   //每次训练的样本数大小
+        &quot;save_dir&quot;: &quot;./experiments&quot;,   //保存日志、模型参数、结果输出的文件夹名称
+        &quot;monitor&quot;: &quot;accuracy&quot;,   //[accuracy/loss/f1_score]，训练过程中在验证集上评估指标
+        &quot;num_gpus&quot;: 1,   //机器可使用gpu个数
+        &quot;patience&quot;: 20,   //连续多少个epoch后在验证集上效果没有再提升，则停止训练
+        &quot;pre_train_epoch&quot;: 10,   //超参搜索阶段，每组参数训练的epoch数目
+        &quot;max_steps&quot;: 64000,   //训练最大运行的steps，当patience很大时则会训练max_steps步，max_steps*batch_size/num_samples为对应训练的epoch数
+        &quot;loss&quot;: &quot;cross_entropy&quot;,
+        &quot;selected_mode&quot;: &quot;max&quot;   //[max/min]验证集上评估指标是越大越好还是越小越好
+    },
+
+    &quot;optimizer&quot;: {
+        &quot;type&quot;: &quot;adam&quot;    //[adam/sgd/adadelta/adagrad/adamw/ftrl/momentum/rmsprop/kfac/dynamic_momentum/lamb]
+    },
+
+    &quot;evaluator&quot;: {
+        &quot;max_number_of_steps&quot;: 1,
+        &quot;batch_size&quot;:100
+
+    },
+
+    &quot;predictor&quot;: {
+        &quot;max_number_of_steps&quot;: 1,
+        &quot;batch_size&quot;:100
+    },
+
+    &quot;explainer&quot;: {
+        &quot;type&quot;: &quot;Shap&quot;,
+        &quot;args&quot;: {
+            &quot;plot_type&quot;: &quot;bar&quot;,  //[bar/dot/violin/layered_violin]
+            &quot;features_name_file&quot;: &quot;/data_autogenome/data_test/names_2.txt&quot;,  //变量名文件，一列，行数为变量个数
+            &quot;num_samples&quot;: 80,   //使用的样本数
+            &quot;ranked_outputs&quot;: 20  //输出变量重要性前多少个
+        }
+    },
+
+    &quot;param_spec&quot;: {   //模型初始参数，不进行超参搜索时则直接训练该模型
+        &quot;type&quot;: &quot;origin_params&quot;,
+        &quot;args&quot;: {
+            &quot;MLP&quot;: {
+                &quot;layers_list&quot;: [64， 128],  //网络结构
+                &quot;keep_prob&quot;: 1,
+                &quot;output_nonlinear&quot;: &quot;sigmoid&quot;
+            },
+            &quot;optimizer_param&quot;: {
+                &quot;learning_rate&quot;: 0.0001
+            }
+        }
+    },
+
+    &quot;hyper_param_spec&quot;: {  //超参搜索空间
+        &quot;type&quot;: &quot;hyper_params&quot;,
+        &quot;args&quot;: {
+            &quot;MLP&quot;: {
+                &quot;size_candidates&quot;: [128, 64],   //每层网络节点搜索空间
+                &quot;num_layers&quot;: [2, 3],  //隐藏网络层数
+                &quot;keep_prob&quot;: [0.8, 1.0],
+                &quot;output_nonlinear&quot;: [null, &quot;relu&quot;, &quot;tanh&quot;, &quot;sigmoid&quot;]
+            },
+            &quot;optimizer_param&quot;: {
+
+            }
+        }
+}
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h3>使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>AutoGenome的使用主要包含以下几步：</p>
+<ol>
+<li><p class="first">导入autogenome包</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">autogenome</span> <span class="k">as</span> <span class="nn">ag</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">读取配置文件，配置文件如上述所示</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="s2">&quot;/data_autogenome/data_test/json_hub_simple/densenet_test.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>配置文件读取成功后，会打印如下日志：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>==========================================================
+----------Use the config from 
+/data_autogenome/data_test/json_hub_simple/mlp_test.json
+----------Initialize data_loader class
+----------Initialize Optimizer
+----------Initialize hyper_param_spec class 
+----------Initialize param_spec class 
+==========================================================
+#################################################################################
+#                                                                               #
+#                                                                               #
+         Ready to search the best hyper parameters for MLP model            
+#                                                                               #
+#                                                                               #
+#################################################################################
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">训练模型。根据配置文件中训练参数进行模型训练，将数据集划分为训练集:验证集为8:2，使用训练集数据进行训练，同时在验证集数据上进行评估，保存在验证集数据上评价指标（trainer.monitor: &#8220;accuracy&#8221;）更好的模型和参数到相应文件夹（trainer.saver: &#8221;./experiments&#8221;）中的<code class="docutils literal"><span class="pre">models</span></code>文件夹中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>训练过程中，先将模型初始化为<code class="docutils literal"><span class="pre">param_spec</span></code>中参数，然后在超参搜索空间<code class="docutils literal"><span class="pre">hyper_param_spec</span></code>中进行参数搜索，每一种参数组合会训练一定的epoch数（trainer.pre_train_epoch），挑选结果最好的作为最终模型结构参数并进行进一步训练，训练过程中在验证集上进行评估，当结果更好时保存模型参数，在连续数个epoch（trainer.patience）后在验证集上效果没有再提升，则停止训练。</p>
+<p>训练过程中部分日志如下:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Hyper</span> <span class="o">&amp;</span> <span class="nx">Training</span> <span class="nx">Search</span> <span class="nx">stage</span>
+<span class="p">...</span>
+<span class="nx">Pretraining</span><span class="o">:</span> <span class="nx">search</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">layers_list</span><span class="p">,</span> <span class="nx">search</span> <span class="nx">value</span> <span class="nx">is</span> <span class="p">(</span><span class="mf">128</span><span class="p">,</span> <span class="mf">64</span><span class="p">)</span>
+<span class="nx">LR_RANGE_TEST</span> <span class="nx">From</span> <span class="nx">begin_lr</span> <span class="mf">0.000010</span> <span class="nx">To</span> <span class="nx">end_lr</span> <span class="mf">0.100000</span><span class="p">,</span> 
+<span class="nx">Graph</span> <span class="nx">was</span> <span class="nx">finalized</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">will</span> <span class="nx">end</span> <span class="nx">at</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">10</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">218.444</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.805</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.484</span>
+<span class="p">...</span>
+<span class="nx">The</span> <span class="nx">model</span> <span class="nx">and</span> <span class="nx">events</span> <span class="nx">are</span> <span class="nx">saved</span> <span class="ow">in</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">mlp_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_113835</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_layers_list_</span><span class="p">(</span><span class="mf">128128</span><span class="p">)</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_output_nonlinear_None</span>
+<span class="nx">Graph</span> <span class="nx">was</span> <span class="nx">finalized</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">will</span> <span class="nx">end</span> <span class="nx">at</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">64000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">86.607</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.843</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.531</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">1</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">147.601</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.266</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">2</span> <span class="nx">into</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">mlp_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_113835</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_layers_list_</span><span class="p">(</span><span class="mf">128128</span><span class="p">)</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_output_nonlinear_None</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">3</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">64.228</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.266</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">5</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">67.668</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.328</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">6</span> <span class="nx">into</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">mlp_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_113835</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_layers_list_</span><span class="p">(</span><span class="mf">128128</span><span class="p">)</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_output_nonlinear_None</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">7</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">122.216</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.328</span>
+<span class="p">...</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">200</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">200</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4496.934</span>    <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.000</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">201</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.046</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.953</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">203</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.034</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.953</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">205</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.025</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">206</span> <span class="nx">into</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">mlp_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_113835</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_layers_list_</span><span class="p">(</span><span class="mf">128128</span><span class="p">)</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_output_nonlinear_None</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">207</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.036</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">评估模型。根据上步所训练的模型结构及模型参数，评估在<code class="docutils literal"><span class="pre">data_evaluate</span></code>上表现，分类模型输出<code class="docutils literal"><span class="pre">accuracy</span></code>值和<code class="docutils literal"><span class="pre">confusion</span> <span class="pre">matrix</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>部分日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Evaluation</span> <span class="nx">stage</span>
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">mlp_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_113835</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_layers_list_</span><span class="p">(</span><span class="mf">128128</span><span class="p">)</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_output_nonlinear_None</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">206</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">loss</span><span class="o">:</span> <span class="mf">0.005278169643133879</span>   <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.0</span>       <span class="p">[</span><span class="mf">1</span> <span class="nx">batches</span><span class="p">]</span>
+<span class="nx">Confusion</span> <span class="nx">matrix</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/MLP_confusion_matrix.pdf&#39;</span>
+</pre></div>
+</div>
+<p>得到的confusion matrix图如下所示，图数字大小会根据类别数多少进行调整，x轴为真值，y轴为预测值：</p>
+<p><img alt="" src="../_images/mlp_confusion_matrix.png" /></p>
+</li>
+</ol>
+<ol>
+<li><p class="first">预测数据。根据第3步所训练的模型结构及模型参数，对于给定features数据，分类问题预测其类别及各个类别的softmax值，并输出到对应的csv文件中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Prediction</span> <span class="nx">stage</span> 
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">mlp_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_113835</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_layers_list_</span><span class="p">(</span><span class="mf">128128</span><span class="p">)</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_output_nonlinear_None</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">206</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+ <span class="p">[</span><span class="mf">1</span> <span class="nx">batches</span><span class="p">]</span>
+<span class="nx">Predicted</span> <span class="nx">values</span> <span class="nx">file</span> <span class="nx">is</span> <span class="s2">&quot;experiments/output_files/mlp_demo/1225_113835/MLP_predicted_result_data_frame.csv&quot;</span>
+</pre></div>
+</div>
+<p>如日志所示，将输出预测的target文件，文件第一列<code class="docutils literal"><span class="pre">predicted_result</span></code>，第二列<code class="docutils literal"><span class="pre">softmax_value</span></code>为各个类别的softmax值。</p>
+</li>
+<li><p class="first">变量重要性排序。根据第3步所训练的模型结构及模型参数，对变量重要性进行排序，输出各个类别变量重要性，<code class="docutils literal"><span class="pre">explainer</span></code>中需要指定变量名对应的文件。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">explain</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>对模型变量重要性进行排序，输出日志如下：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">Initialize</span> <span class="nx">Shap</span> <span class="kd">class</span>
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">mlp_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_113835</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_layers_list_</span><span class="p">(</span><span class="mf">128128</span><span class="p">)</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_output_nonlinear_None</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">206</span>
+<span class="o">----------</span><span class="nx">Computing</span> <span class="nx">shap_values</span> <span class="kd">with</span> <span class="mf">80</span>  <span class="nx">examples</span> <span class="nx">and</span> <span class="mf">23361</span> <span class="nx">features</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/_dot0_feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/_dot1_feature_importance_summary.pdf&#39;</span>
+<span class="nx">features</span> <span class="nx">orders</span> <span class="ow">in</span> <span class="nx">all</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="nx">saved</span> <span class="ow">in</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/_features_orders.csv&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="k">for</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/class_0feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="k">for</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/class_1feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/_barTotal_feature_importance_summary.pdf&#39;</span>
+<span class="nx">shap_values</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/_class_0shap_values.csv&#39;</span>
+<span class="nx">shap_values</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/mlp_demo/1225_113835/_class_1shap_values.csv&#39;</span>
+</pre></div>
+</div>
+<p>运行结束后将输出各个类别的变量重要性条图和点图和总的变量重要性图，如下所示：</p>
+<p>总的变量重要性图：</p>
+<p><img alt="" src="../_images/mlp_total_feature_importance_summary.png" /></p>
+<p>class 1变量重要性条图：</p>
+<p><img alt="" src="../_images/mlp_class1_feature_importance_summary_bar.png" /></p>
+<p>class 0变量重要性条图：</p>
+<p><img alt="" src="../_images/mlp_class0_feature_importance_summary_bar.png" /></p>
+<p>class 1变量重要性点图：</p>
+<p><img alt="" src="../_images/mlp_class1_feature_importance_summary_dot.png" /></p>
+<p>class 0变量重要性点图：
+<img alt="" src="../_images/mlp_class0_feature_importance_summary_dot.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="rfcn-resnet">
+<span id="rfcn-resnet"></span><h2>RFCN-ResNet案例<a class="headerlink" href="#rfcn-resnet" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="##配置文件">配置文件</a></li>
+<li><a class="reference external" href="##使用">使用</a></li>
+</ul>
+<p>ResNet案例以一个二分类任务为例，<code class="docutils literal"><span class="pre">features</span></code>数据<code class="docutils literal"><span class="pre">little_exp.tsv</span></code>包含100个samples，23361个features。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; wc little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span>  <span class="c1"># 打印行数</span>
+<span class="m">100</span>
+&gt; sed -n <span class="s1">&#39;1,1p&#39;</span> little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print NF}&#39;</span>  <span class="c1"># 打印列数</span>
+<span class="m">23361</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">target</span></code>数据为两类，分别为70和30。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; grep -c <span class="m">0</span> little_learning_target.tsv
+<span class="m">70</span>
+&gt; grep -c <span class="m">1</span> little_learning_target.tsv
+<span class="m">30</span>
+</pre></div>
+</div>
+<p>首先，准备配置文件，具体如下所示：</p>
+<div class="section" id="">
+<span id="id12"></span><h3>配置文件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;resnet_demo&quot;</span><span class="p">,</span>  <span class="c1">// Project name</span>
+
+    <span class="s2">&quot;model&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;ResNet&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;output_classes&quot;</span><span class="o">:</span> <span class="mf">2</span><span class="p">}</span>  <span class="c1">// 分类数目</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_train&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span><span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>  <span class="c1">//数据所在文件夹，推荐使用绝对路径</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>   <span class="c1">//features文件名</span>
+            <span class="s2">&quot;labels_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_learning_target.tsv&quot;</span><span class="p">,</span>   <span class="c1">//target文件名</span>
+            <span class="s2">&quot;validation_split&quot;</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span>  <span class="c1">//验证集比例</span>
+            <span class="s2">&quot;shuffle&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">//训练时是否对数据进行打乱操作</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>  <span class="c1">//数据分隔符，default: &#39;\t&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_evaluate&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>  <span class="c1">//用于单独评估的features文件名</span>
+            <span class="s2">&quot;labels_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_learning_target.tsv&quot;</span><span class="p">,</span>  <span class="c1">//用于单独评估的target文件名</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_predict&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>  <span class="c1">//用于单独预测的features文件名</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;input_fn&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;num_threads&quot;</span><span class="o">:</span> <span class="mf">16</span>  <span class="c1">//读取数据线程数</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;trainer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;hyper_selector&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">//[true/false]，是否进行超参搜索</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span> <span class="mf">64</span><span class="p">,</span>  <span class="c1">//每次训练的样本数大小</span>
+        <span class="s2">&quot;save_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;./experiments&quot;</span><span class="p">,</span>  <span class="c1">//保存日志、模型参数、结果输出的文件夹名称</span>
+        <span class="s2">&quot;monitor&quot;</span><span class="o">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>  <span class="c1">//[accuracy/loss/f1_score]，训练过程中在验证集上评估指标</span>
+        <span class="s2">&quot;num_gpus&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>  <span class="c1">//机器可使用gpu个数</span>
+        <span class="s2">&quot;patience&quot;</span><span class="o">:</span> <span class="mf">30</span><span class="p">,</span>   <span class="c1">//连续多少个epoch后在验证集上效果没有再提升，则停止训练</span>
+        <span class="s2">&quot;pre_train_epoch&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>  <span class="c1">//超参搜索阶段，每组参数训练的epoch数目</span>
+        <span class="s2">&quot;max_steps&quot;</span><span class="o">:</span> <span class="mf">64000</span><span class="p">,</span>  <span class="c1">//训练最大运行的steps，当patience很大时则会训练max_steps步，max_steps*batch_size/num_samples为对应训练的epoch数</span>
+        <span class="s2">&quot;loss&quot;</span><span class="o">:</span> <span class="s2">&quot;cross_entropy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;selected_mode&quot;</span><span class="o">:</span> <span class="s2">&quot;max&quot;</span>   <span class="c1">//[max/min]验证集上评估指标是越大越好还是越小越好</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;optimizer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;adam&quot;</span>  <span class="c1">//[adam/sgd/adadelta/adagrad/adamw/ftrl/momentum/rmsprop/kfac/dynamic_momentum/lamb]</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;evaluator&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;max_number_of_steps&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span><span class="mf">100</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;predictor&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;log_every_n_steps&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+        <span class="s2">&quot;output_every_n_steps&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+        <span class="s2">&quot;max_number_of_steps&quot;</span><span class="o">:</span> <span class="mf">100</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span><span class="mf">100</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;explainer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Explain&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;mode&quot;</span><span class="o">:</span> <span class="s2">&quot;shap&quot;</span><span class="p">,</span>  <span class="c1">// name of the method to run, &quot;shap&quot;, &quot;intgrad&quot;, &quot;occlusion&quot;</span>
+            <span class="s2">&quot;features_name_file&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test/names_2.txt&quot;</span><span class="p">,</span>  <span class="c1">//变量名文件，一列，行数为变量个数</span>
+            <span class="s2">&quot;plot_type&quot;</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>  <span class="c1">//[bar/dot/violin/layered_violin]</span>
+            <span class="s2">&quot;num_samples&quot;</span><span class="o">:</span> <span class="mf">80</span><span class="p">,</span>  <span class="c1">//使用的样本数</span>
+            <span class="s2">&quot;ranked_outputs&quot;</span><span class="o">:</span> <span class="mf">20</span>  <span class="c1">//输出变量重要性前多少个</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;param_spec&quot;</span><span class="o">:</span> <span class="p">{</span>   <span class="c1">//模型初始参数</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;origin_params&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ResNet&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;n_latent&quot;</span><span class="o">:</span> <span class="mf">32</span><span class="p">,</span>
+                <span class="s2">&quot;n_blocks&quot;</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span>
+                <span class="s2">&quot;keep_prob&quot;</span><span class="o">:</span> <span class="mf">0.8</span><span class="p">,</span>
+                <span class="s2">&quot;output_nonlinear&quot;</span><span class="o">:</span> <span class="s2">&quot;sigmoid&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimizer_param&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;learning_rate&quot;</span><span class="o">:</span> <span class="mf">0.0001</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;hyper_param_spec&quot;</span><span class="o">:</span> <span class="p">{</span>    <span class="c1">//超参搜索空间</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;hyper_params&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ResNet&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;n_latent&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">128</span><span class="p">,</span> <span class="mf">64</span><span class="p">,</span> <span class="mf">32</span><span class="p">],</span>
+                <span class="s2">&quot;n_blocks&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">],</span>
+                <span class="s2">&quot;keep_prob&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                <span class="s2">&quot;output_nonlinear&quot;</span><span class="o">:</span> <span class="p">[</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimizer_param&quot;</span><span class="o">:</span> <span class="p">{</span>
+
+            <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id13"></span><h3>使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>AutoGenome的使用主要包含以下几步：</p>
+<ol>
+<li><p class="first">导入autogenome包</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">autogenome</span> <span class="k">as</span> <span class="nn">ag</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">读取配置文件，配置文件如上述所示</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="s2">&quot;/data_autogenome/data_test/json_hub_simple/resnet_test.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>配置文件读取成功后，会打印如下日志：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>==========================================================
+----------Use the config from /data_autogenome/data_test/json_hub_simple/resnet_test.json
+----------Initialize data_loader class
+----------Initialize Optimizer
+----------Initialize hyper_param_spec class 
+----------Initialize param_spec class 
+==========================================================
+#################################################################################
+#                                                                               #
+#                                                                               #
+         Ready to search the best hyper parameters for ResNet model            
+#                                                                               #
+#                                                                               #
+#################################################################################
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">训练模型。根据配置文件中训练参数进行模型训练，将数据集划分为训练集:验证集为8:2，使用训练集数据进行训练，同时在验证集数据上进行评估，保存在验证集数据上评价指标（trainer.monitor: &#8220;accuracy&#8221;）更好的模型和参数到相应文件夹（trainer.saver: &#8221;./experiments&#8221;）中的<code class="docutils literal"><span class="pre">models</span></code>文件夹中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>训练过程中，先将模型初始化为<code class="docutils literal"><span class="pre">param_spec</span></code>中参数，然后在超参搜索空间<code class="docutils literal"><span class="pre">hyper_param_spec</span></code>中进行参数搜索，每一种参数组合会训练一定的epoch数（trainer.pre_train_epoch），挑选结果最好的作为最终模型结构参数并进行进一步训练，训练过程中在验证集上进行评估，当结果更好时保存模型参数，在连续数个epoch（trainer.patience）后在验证集上效果没有再提升，则停止训练。</p>
+<p>训练过程中部分日志如下:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Hyper</span> <span class="o">&amp;</span> <span class="nx">Training</span> <span class="nx">Search</span> <span class="nx">stage</span> 
+<span class="p">...</span>
+<span class="nx">Pretraining</span><span class="o">:</span> <span class="nx">search</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">n_latent</span><span class="p">,</span> <span class="nx">search</span> <span class="nx">value</span> <span class="nx">is</span> <span class="mf">32</span>
+<span class="nx">LR_RANGE_TEST</span> <span class="nx">From</span> <span class="nx">begin_lr</span> <span class="mf">0.000010</span> <span class="nx">To</span> <span class="nx">end_lr</span> <span class="mf">0.100000</span><span class="p">,</span> 
+<span class="nx">Graph</span> <span class="nx">was</span> <span class="nx">finalized</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">will</span> <span class="nx">end</span> <span class="nx">at</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">10</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">141.683</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.674</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.609</span>
+<span class="p">...</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">163</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.213</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.828</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">165</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.726</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.906</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">166</span> <span class="nx">into</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">resnet_demo</span><span class="o">/</span><span class="mf">1218</span><span class="nx">_160039</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_n_latent_128_output_nonlinear_None_n_blocks_2</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">167</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.827</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.828</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">169</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.776</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.828</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">171</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.910</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.891</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">173</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.207</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.984</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">174</span> <span class="nx">into</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">resnet_demo</span><span class="o">/</span><span class="mf">1218</span><span class="nx">_160039</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_n_latent_128_output_nonlinear_None_n_blocks_2</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">175</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.181</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.984</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">评估模型。根据上步所训练的模型结构及模型参数，评估在<code class="docutils literal"><span class="pre">data_evaluate</span></code>上表现，分类模型输出<code class="docutils literal"><span class="pre">accuracy</span></code>值和<code class="docutils literal"><span class="pre">confusion</span> <span class="pre">matrix</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>部分日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Evaluation</span> <span class="nx">stage</span> 
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">resnet_demo</span><span class="o">/</span><span class="mf">1218</span><span class="nx">_160039</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_n_latent_128_output_nonlinear_None_n_blocks_2</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">200</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">1</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">117.715</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.007</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">3</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">133.102</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.007</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">5</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">115.314</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.007</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">7</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">103.886</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.007</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">9</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">99.960</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.007</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="p">...</span>
+<span class="nx">loss</span><span class="o">:</span> <span class="mf">0.006915087699890137</span>   <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">1.0</span>       <span class="p">[</span><span class="mf">100</span> <span class="nx">batches</span><span class="p">]</span>
+<span class="nx">Confusion</span> <span class="nx">matrix</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/output_files/resnet_demo/1218_160039/ResNet_confusion_matrix.pdf&#39;</span>
+</pre></div>
+</div>
+<p>得到的confusion matrix图如下所示，图数字大小会根据类别数多少进行调整，x轴为真值，y轴为预测值：</p>
+<p><img alt="" src="../_images/resnet_confusion_matrix.png" /></p>
+</li>
+</ol>
+<ol>
+<li><p class="first">预测数据。根据第3步所训练的模型结构及模型参数，对于给定features数据，分类问题预测其类别及各个类别的softmax值，并输出到对应的csv文件中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Prediction</span> <span class="nx">stage</span> 
+<span class="nx">Graph</span> <span class="nx">was</span> <span class="nx">finalized</span><span class="p">.</span>
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">resnet_demo</span><span class="o">/</span><span class="mf">1218</span><span class="nx">_160039</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_keep_prob_0</span><span class="mf">.8</span><span class="nx">_n_latent_128_output_nonlinear_None_n_blocks_2</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">200</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">9</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">110.194</span>
+ <span class="p">[</span><span class="mf">10</span> <span class="nx">batches</span><span class="p">]</span>
+<span class="nx">Predicted</span> <span class="nx">values</span> <span class="nx">file</span> <span class="nx">is</span> <span class="s2">&quot;experiments/output_files/resnet_demo/1218_160039/ResNet_predicted_result_data_frame.csv&quot;</span>
+</pre></div>
+</div>
+<p>如日志所示，将输出预测的target文件，文件第一列<code class="docutils literal"><span class="pre">predicted_result</span></code>，第二列<code class="docutils literal"><span class="pre">softmax_value</span></code>为各个类别的softmax值。</p>
+</li>
+<li><p class="first">变量重要性排序。根据第3步所训练的模型结构及模型参数，对变量重要性进行排序，输出各个类别变量重要性，<code class="docutils literal"><span class="pre">explainer</span></code>中需要指定变量名对应的文件。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">explain</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>对模型变量重要性进行排序，输出日志如下：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>----------Initialize Shap class
+Restoring parameters from experiments/models/resnet_demo/1218_160039/hyper_lr0.08500150000000001_keep_prob_0.8_n_latent_128_output_nonlinear_None_n_blocks_2/best_model.ckpt-200
+----------Computing shap_values with 80  examples and 23361 features
+importance plot is &#39;experiments/output_files/resnet_demo/1218_160039/_dot0_feature_importance_summary.pdf&#39;
+importance plot is &#39;experiments/output_files/resnet_demo/1218_160039/_dot1_feature_importance_summary.pdf&#39;
+features orders in all classes is saved in &#39;experiments/output_files/resnet_demo/1218_160039/_features_orders.csv&#39;
+importance plot for every classes is &#39;experiments/output_files/resnet_demo/1218_160039/class_1feature_importance_summary.pdf&#39;
+importance plot for every classes is &#39;experiments/output_files/resnet_demo/1218_160039/class_0feature_importance_summary.pdf&#39;
+importance plot is &#39;experiments/output_files/resnet_demo/1218_160039/_barTotal_feature_importance_summary.pdf&#39;
+shap_values every classes is &#39;experiments/output_files/resnet_demo/1218_160039/_class_0shap_values.csv&#39;
+shap_values every classes is &#39;experiments/output_files/resnet_demo/1218_160039/_class_1shap_values.csv
+</pre></div>
+</div>
+<p>运行结束后将输出各个类别的变量重要性条图和点图和总的变量重要性图，如下所示：</p>
+<p>总的变量重要性图：
+<img alt="" src="../_images/resnet_total_feature_importance_summary.png" /></p>
+<p>class 1变量重要性条图：
+<img alt="" src="../_images/resnet_class1_feature_importance_summary_bar.png" /></p>
+<p>class 0变量重要性条图：
+<img alt="" src="../_images/resnet_class0_feature_importance_summary_bar.png" /></p>
+<p>class 1变量重要性点图：
+<img alt="" src="../_images/resnet_class1_feature_importance_summary_dot.png" /></p>
+<p>class 0变量重要性点图：
+<img alt="" src="../_images/resnet_class0_feature_importance_summary_dot.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="rfcn-densenet">
+<span id="rfcn-densenet"></span><h2>RFCN-DenseNet案例<a class="headerlink" href="#rfcn-densenet" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="##配置文件">配置文件</a></li>
+<li><a class="reference external" href="##使用">使用</a></li>
+</ul>
+<p>DenseNet案例以一个二分类任务为例，<code class="docutils literal"><span class="pre">features</span></code>数据<code class="docutils literal"><span class="pre">little_exp.tsv</span></code>包含100个samples，23361个features。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; wc little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span>  <span class="c1"># 打印行数</span>
+<span class="m">100</span>
+&gt; sed -n <span class="s1">&#39;1,1p&#39;</span> little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print NF}&#39;</span>  <span class="c1"># 打印列数</span>
+<span class="m">23361</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">target</span></code>数据为两类，分别为70和30。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; grep -c <span class="m">0</span> little_learning_target.tsv
+<span class="m">70</span>
+&gt; grep -c <span class="m">1</span> little_learning_target.tsv
+<span class="m">30</span>
+</pre></div>
+</div>
+<p>首先，准备配置文件，具体如下所示：</p>
+<div class="section" id="">
+<span id="id14"></span><h3>配置文件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;densenet_demo&quot;</span><span class="p">,</span>  <span class="c1">// Project name</span>
+
+    <span class="s2">&quot;model&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DenseNet&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;output_classes&quot;</span><span class="o">:</span> <span class="mf">2</span><span class="p">}</span>  <span class="c1">// 分类数目</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_train&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span><span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>  <span class="c1">//数据所在文件夹，推荐使用绝对路径</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>   <span class="c1">//features文件名</span>
+            <span class="s2">&quot;labels_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_learning_target.tsv&quot;</span><span class="p">,</span>   <span class="c1">//target文件名</span>
+            <span class="s2">&quot;validation_split&quot;</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span>  <span class="c1">//验证集比例</span>
+            <span class="s2">&quot;shuffle&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">//训练时是否对数据进行打乱操作</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>  <span class="c1">//数据分隔符，default: &#39;\t&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_evaluate&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>  <span class="c1">//用于单独评估的features文件名</span>
+            <span class="s2">&quot;labels_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_learning_target.tsv&quot;</span><span class="p">,</span>  <span class="c1">//用于单独评估的target文件名</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_predict&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>  <span class="c1">//用于单独预测的features文件名</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;input_fn&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;num_threads&quot;</span><span class="o">:</span> <span class="mf">16</span>  <span class="c1">//读取数据线程数</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;trainer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;hyper_selector&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">//[true/false]，是否进行超参搜索</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span> <span class="mf">64</span><span class="p">,</span>  <span class="c1">//每次训练的样本数大小</span>
+        <span class="s2">&quot;save_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;./experiments&quot;</span><span class="p">,</span>  <span class="c1">//保存日志、模型参数、结果输出的文件夹名称</span>
+        <span class="s2">&quot;monitor&quot;</span><span class="o">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>  <span class="c1">//[accuracy/loss/f1_score]，训练过程中在验证集上评估指标</span>
+        <span class="s2">&quot;num_gpus&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>  <span class="c1">//机器可使用gpu个数</span>
+        <span class="s2">&quot;patience&quot;</span><span class="o">:</span> <span class="mf">30</span><span class="p">,</span>   <span class="c1">//连续多少个epoch后在验证集上效果没有再提升，则停止训练</span>
+        <span class="s2">&quot;pre_train_epoch&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>  <span class="c1">//超参搜索阶段，每组参数训练的epoch数目</span>
+        <span class="s2">&quot;max_steps&quot;</span><span class="o">:</span> <span class="mf">64000</span><span class="p">,</span>  <span class="c1">//训练最大运行的steps，当patience很大时则会训练max_steps步，max_steps*batch_size/num_samples为对应训练的epoch数</span>
+        <span class="s2">&quot;loss&quot;</span><span class="o">:</span> <span class="s2">&quot;cross_entropy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;selected_mode&quot;</span><span class="o">:</span> <span class="s2">&quot;max&quot;</span>   <span class="c1">//[max/min]验证集上评估指标是越大越好还是越小越好</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;optimizer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;adam&quot;</span>  <span class="c1">//[adam/sgd/adadelta/adagrad/adamw/ftrl/momentum/rmsprop/kfac/dynamic_momentum/lamb]</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;evaluator&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;max_number_of_steps&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span><span class="mf">100</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;predictor&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;log_every_n_steps&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+        <span class="s2">&quot;output_every_n_steps&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+        <span class="s2">&quot;max_number_of_steps&quot;</span><span class="o">:</span> <span class="mf">100</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span><span class="mf">100</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;explainer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;features_name_file&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test/names_2.txt&quot;</span><span class="p">,</span>  <span class="c1">//变量名文件，一列，行数为变量个数</span>
+            <span class="s2">&quot;plot_type&quot;</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>  <span class="c1">//[bar/dot/violin/layered_violin]</span>
+            <span class="s2">&quot;num_samples&quot;</span><span class="o">:</span> <span class="mf">80</span><span class="p">,</span>  <span class="c1">//使用的样本数</span>
+            <span class="s2">&quot;ranked_outputs&quot;</span><span class="o">:</span> <span class="mf">20</span>  <span class="c1">//输出变量重要性前多少个</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;param_spec&quot;</span><span class="o">:</span> <span class="p">{</span>                <span class="c1">//模型初始参数</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;origin_params&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;DenseNet&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;growth_rate&quot;</span><span class="o">:</span><span class="mf">32</span><span class="p">,</span>
+                <span class="s2">&quot;bn_size&quot;</span><span class="o">:</span><span class="mf">32</span><span class="p">,</span>
+                <span class="s2">&quot;block_config&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">],</span>   <span class="c1">//densenet中block参数</span>
+                <span class="s2">&quot;keep_prob&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+                <span class="s2">&quot;output_nonlinear&quot;</span><span class="o">:</span> <span class="kc">null</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimizer_param&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;learning_rate&quot;</span><span class="o">:</span> <span class="mf">0.0001</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;hyper_param_spec&quot;</span><span class="o">:</span> <span class="p">{</span>             <span class="c1">//超参搜索空间</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;hyper_params&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;DenseNet&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;growth_rate&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">64</span><span class="p">,</span> <span class="mf">32</span><span class="p">],</span>
+                <span class="s2">&quot;bn_size&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">16</span><span class="p">,</span> <span class="mf">32</span><span class="p">,</span> <span class="mf">64</span><span class="p">],</span>
+                <span class="s2">&quot;block_config&quot;</span><span class="o">:</span> <span class="p">[[</span><span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">]],</span>
+                <span class="s2">&quot;keep_prob&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                <span class="s2">&quot;output_nonlinear&quot;</span><span class="o">:</span> <span class="p">[</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimizer_param&quot;</span><span class="o">:</span> <span class="p">{</span>
+
+            <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id15"></span><h3>使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>AutoGenome的使用主要包含以下几步：</p>
+<ol>
+<li><p class="first">导入autogenome包</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">autogenome</span> <span class="k">as</span> <span class="nn">ag</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">读取配置文件，配置文件如上述所示</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="s2">&quot;/data_autogenome/data_test/json_hub_simple/densenet_test.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>配置文件读取成功后，会打印如下日志：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>==========================================================
+----------Use the config from /data_autogenome/data_test/json_hub_simple/densenet_test.json
+----------Initialize data_loader class
+----------Initialize Optimizer
+----------Initialize hyper_param_spec class 
+----------Initialize param_spec class 
+==========================================================
+#################################################################################
+#                                                                               #
+#                                                                               #
+         Ready to search the best hyper parameters for DenseNet model            
+#                                                                               #
+#                                                                               #
+#################################################################################
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">训练模型。根据配置文件中训练参数进行模型训练，将数据集划分为训练集:验证集为8:2，使用训练集数据进行训练，同时在验证集数据上进行评估，保存在验证集数据上评价指标（trainer.monitor: &#8220;accuracy&#8221;）更好的模型和参数到相应文件夹（trainer.saver: &#8221;./experiments&#8221;）中的<code class="docutils literal"><span class="pre">models</span></code>文件夹中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>训练过程中，先将模型初始化为<code class="docutils literal"><span class="pre">param_spec</span></code>中参数，然后在超参搜索空间<code class="docutils literal"><span class="pre">hyper_param_spec</span></code>中进行参数搜索，每一种参数组合会训练一定的epoch数（trainer.pre_train_epoch），挑选结果最好的作为最终模型结构参数并进行进一步训练，训练过程中在验证集上进行评估，当结果更好时保存模型参数，在连续数个epoch（trainer.patience）后在验证集上效果没有再提升，则停止训练。</p>
+<p>训练过程中部分日志如下:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Hyper</span> <span class="o">&amp;</span> <span class="nx">Training</span> <span class="nx">Search</span> <span class="nx">stage</span>
+<span class="p">...</span>
+<span class="nx">Pretraining</span><span class="o">:</span> <span class="nx">search</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">growth_rate</span><span class="p">,</span> <span class="nx">search</span> <span class="nx">value</span> <span class="nx">is</span> <span class="mf">32</span>
+<span class="nx">LR_RANGE_TEST</span> <span class="nx">From</span> <span class="nx">begin_lr</span> <span class="mf">0.000010</span> <span class="nx">To</span> <span class="nx">end_lr</span> <span class="mf">0.100000</span><span class="p">,</span> 
+<span class="nx">Graph</span> <span class="nx">was</span> <span class="nx">finalized</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">will</span> <span class="nx">end</span> <span class="nx">at</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">10</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">30.537</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.815</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.500</span>
+<span class="p">...</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">227</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.483</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.969</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">228</span> <span class="nx">into</span> <span class="nx">data_autogenome</span><span class="o">/</span><span class="nx">data_test</span><span class="o">/</span><span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">densenet_demo</span><span class="o">/</span><span class="mf">1217</span><span class="nx">_200522</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_block_config_23_bn_size_16_output_nonlinear_None_growth_rate_64_keep_prob_0</span><span class="mf">.8</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">229</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.906</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.938</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">231</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.664</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.953</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">233</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.088</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.922</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">235</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.214</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.984</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">236</span> <span class="nx">into</span> <span class="nx">data_autogenome</span><span class="o">/</span><span class="nx">data_test</span><span class="o">/</span><span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">densenet_demo</span><span class="o">/</span><span class="mf">1217</span><span class="nx">_200522</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_block_config_23_bn_size_16_output_nonlinear_None_growth_rate_64_keep_prob_0</span><span class="mf">.8</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">237</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.613</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.953</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">239</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.797</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.938</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">评估模型。根据上步所训练的模型结构及模型参数，评估在<code class="docutils literal"><span class="pre">data_evaluate</span></code>上表现，分类模型输出<code class="docutils literal"><span class="pre">accuracy</span></code>值和<code class="docutils literal"><span class="pre">confusion</span> <span class="pre">matrix</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>部分日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Evaluation</span> <span class="nx">stage</span>
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">data_autogenome</span><span class="o">/</span><span class="nx">data_test</span><span class="o">/</span><span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">densenet_demo</span><span class="o">/</span><span class="mf">1217</span><span class="nx">_200522</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_block_config_23_bn_size_16_output_nonlinear_None_growth_rate_64_keep_prob_0</span><span class="mf">.8</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">272</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">1</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">13.002</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.080</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.990</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">3</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">17.464</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.080</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.990</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">5</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">14.547</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.080</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.990</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">7</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">11.867</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.080</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.990</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">9</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">13.184</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">0.080</span> <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.990</span>
+<span class="nx">loss</span><span class="o">:</span> <span class="mf">0.07991278767585755</span>    <span class="nx">accuracy</span><span class="o">:</span> <span class="mf">0.9899998664855957</span>        <span class="p">[</span><span class="mf">10</span> <span class="nx">batches</span><span class="p">]</span>
+<span class="nx">Confusion</span> <span class="nx">matrix</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/DenseNet_confusion_matrix.pdf&#39;</span>
+</pre></div>
+</div>
+<p>得到的confusion matrix图如下所示，图数字大小会根据类别数多少进行调整，x轴为真值，y轴为预测值：</p>
+<p><img alt="" src="../_images/densenet_confusion_matrix.png" /></p>
+</li>
+</ol>
+<ol>
+<li><p class="first">预测数据。根据第3步所训练的模型结构及模型参数，对于给定features数据，分类问题预测其类别及各个类别的softmax值，并输出到对应的csv文件中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Prediction</span> <span class="nx">stage</span> 
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">data_autogenome</span><span class="o">/</span><span class="nx">data_test</span><span class="o">/</span><span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">densenet_demo</span><span class="o">/</span><span class="mf">1217</span><span class="nx">_200522</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_block_config_23_bn_size_16_output_nonlinear_None_growth_rate_64_keep_prob_0</span><span class="mf">.8</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">272</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="p">...</span>
+<span class="nx">Predicted</span> <span class="nx">values</span> <span class="nx">file</span> <span class="nx">is</span> <span class="s2">&quot;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/DenseNet_predicted_result_data_frame.csv&quot;</span>
+</pre></div>
+</div>
+<p>如日志所示，将输出预测的target文件，文件第一列<code class="docutils literal"><span class="pre">predicted_result</span></code>，第二列<code class="docutils literal"><span class="pre">softmax_value</span></code>为各个类别的softmax值。</p>
+</li>
+<li><p class="first">变量重要性排序。根据第3步所训练的模型结构及模型参数，对变量重要性进行排序，输出各个类别变量重要性，<code class="docutils literal"><span class="pre">explainer</span></code>中需要指定变量名对应的文件。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">explain</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>对模型变量重要性进行排序，输出日志如下：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">Initialize</span> <span class="nx">Shap</span> <span class="kd">class</span>
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">data_autogenome</span><span class="o">/</span><span class="nx">data_test</span><span class="o">/</span><span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">densenet_demo</span><span class="o">/</span><span class="mf">1217</span><span class="nx">_200522</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.08500150000000001</span><span class="nx">_block_config_23_bn_size_16_output_nonlinear_None_growth_rate_64_keep_prob_0</span><span class="mf">.8</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">272</span>
+<span class="o">----------</span><span class="nx">Computing</span> <span class="nx">shap_values</span> <span class="kd">with</span> <span class="mf">80</span>  <span class="nx">examples</span> <span class="nx">and</span> <span class="mf">23361</span> <span class="nx">features</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/_dot0_feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/_dot1_feature_importance_summary.pdf&#39;</span>
+<span class="nx">features</span> <span class="nx">orders</span> <span class="ow">in</span> <span class="nx">all</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="nx">saved</span> <span class="ow">in</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/_features_orders.csv&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="k">for</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/class_0feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="k">for</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/class_1feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/_barTotal_feature_importance_summary.pdf&#39;</span>
+<span class="nx">shap_values</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/_class_0shap_values.csv&#39;</span>
+<span class="nx">shap_values</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;data_autogenome/data_test/experiments/output_files/densenet_demo/1217_200522/_class_1shap_values.csv&#39;</span>
+</pre></div>
+</div>
+<p>运行结束后将输出各个类别的变量重要性条图和点图和总的变量重要性图，如下所示：</p>
+<p>总的变量重要性图：</p>
+<p><img alt="" src="../_images/densenet_total_feature_importance_summary.png" /></p>
+<p>class 1变量重要性条图：</p>
+<p><img alt="" src="../_images/densenet_class1_feature_importance_summary_bar.png" /></p>
+<p>class 0变量重要性条图：</p>
+<p><img alt="" src="../_images/densenet_class0_feature_importance_summary_bar.png" /></p>
+<p>class 1变量重要性点图：</p>
+<p><img alt="" src="../_images/densenet_class1_feature_importance_summary_dot.png" /></p>
+<p>class 0变量重要性点图：</p>
+<p><img alt="" src="../_images/densenet_class0_feature_importance_summary_dot.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="rrfcn-enas">
+<span id="rrfcn-enas"></span><h2>RRFCN（ENAS的变体）案例<a class="headerlink" href="#rrfcn-enas" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="##配置文件">配置文件</a></li>
+<li><a class="reference external" href="##使用">使用</a></li>
+</ul>
+<p>ENAS案例以一个二分类任务为例，<code class="docutils literal"><span class="pre">features</span></code>数据<code class="docutils literal"><span class="pre">little_exp.tsv</span></code>包含100个samples，23361个features。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; wc little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span>  <span class="c1"># 打印行数</span>
+<span class="m">100</span>
+&gt; sed -n <span class="s1">&#39;1,1p&#39;</span> little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print NF}&#39;</span>  <span class="c1"># 打印列数</span>
+<span class="m">23361</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">target</span></code>数据为两类，分别为70和30。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; grep -c <span class="m">0</span> little_learning_target.tsv
+<span class="m">70</span>
+&gt; grep -c <span class="m">1</span> little_learning_target.tsv
+<span class="m">30</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id16"></span><h3>配置文件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>首先，准备配置文件，具体如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;enas_demo&quot;</span><span class="p">,</span>     <span class="c1">// Project name</span>
+
+    <span class="s2">&quot;model&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;enas&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;output_classes&quot;</span><span class="o">:</span> <span class="mf">2</span><span class="p">}</span>   <span class="c1">// 分类数目</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_train&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span><span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>  <span class="c1">//数据所在文件夹，推荐使用绝对路径</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>       <span class="c1">//features文件名</span>
+            <span class="s2">&quot;labels_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_learning_target.tsv&quot;</span><span class="p">,</span>   <span class="c1">//target文件名</span>
+            <span class="s2">&quot;validation_split&quot;</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span>   <span class="c1">//验证集比例</span>
+            <span class="s2">&quot;shuffle&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>   <span class="c1">//训练时是否对数据进行打乱操作</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>   <span class="c1">//数据分隔符，default: &#39;\t&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_evaluate&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;./data_autogenome/data_test&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>    <span class="c1">//用于单独评估的features文件名</span>
+            <span class="s2">&quot;labels_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_learning_target.tsv&quot;</span><span class="p">,</span>   <span class="c1">//用于单独评估的target文件名</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_predict&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;./data_autogenome/data_test&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>    <span class="c1">//用于单独预测的features文件名</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;input_fn&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;num_threads&quot;</span><span class="o">:</span> <span class="mf">16</span>   <span class="c1">//读取数据线程数</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;trainer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;child_num_layers&quot;</span><span class="o">:</span> <span class="mf">3</span><span class="p">,</span>     <span class="c1">//除第一层外的网络层数，enas中将固定第一层大小，后面的层数搜索空间最大值为第一层大小，即max_search_channel</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span> <span class="mf">64</span><span class="p">,</span>     <span class="c1">//每次训练的样本数大小</span>
+        <span class="s2">&quot;max_number_of_epoches_in_search&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>  <span class="c1">//超参搜索阶段，搜索的epoches数目</span>
+        <span class="s2">&quot;max_number_of_epoches_in_fixed&quot;</span><span class="o">:</span> <span class="mf">50</span><span class="p">,</span>   <span class="c1">//训练阶段epoch数目</span>
+        <span class="s2">&quot;top_k_candidates&quot;</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span>   <span class="c1">//搜索结束后对多少个候选网络进行训练，&gt;=2</span>
+        <span class="s2">&quot;child_l2_reg&quot;</span><span class="o">:</span> <span class="mf">1e-4</span><span class="p">,</span>   <span class="c1">//l2 loss正则化项</span>
+        <span class="s2">&quot;max_search_channel&quot;</span><span class="o">:</span> <span class="mf">512</span><span class="p">,</span>    <span class="c1">//第一层网络大小，也是后面网络搜索空间上限</span>
+        <span class="s2">&quot;save_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/experiments/&quot;</span>  <span class="c1">//保存日志、模型参数、结果输出的文件夹名称</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;evaluator&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;max_number_of_steps&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span><span class="mf">100</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;predictor&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;max_number_of_steps&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span><span class="mf">100</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;explainer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;plot_type&quot;</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;features_name_file&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test/names_2.txt&quot;</span><span class="p">,</span>  <span class="c1">//变量名文件，一列，行数为变量个数</span>
+            <span class="s2">&quot;num_samples&quot;</span><span class="o">:</span> <span class="mf">80</span><span class="p">,</span>
+            <span class="s2">&quot;ranked_outputs&quot;</span><span class="o">:</span> <span class="mf">20</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id17"></span><h3>使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>AutoGenome的使用主要包含以下几步：</p>
+<ol>
+<li><p class="first">导入autogenome包</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">autogenome</span> <span class="k">as</span> <span class="nn">ag</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">读取配置文件，配置文件如上述所示</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="s2">&quot;/data_autogenome/data_test/json_hub_simple/enas_test.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>配置文件读取成功后，会打印如下日志：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>==========================================================
+----------Use the config from ./data_autogenome/data_test/json_hub_simple/enas_test.json
+----------Initialize enas class
+----------Initialize data_loader class
+==========================================================
+#################################################################################
+#                                                                               #
+#                                                                               #
+         Ready to search the best neural arch for enas model            
+#                                                                               #
+#                                                                               #
+#################################################################################
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">训练模型。根据配置文件中训练参数进行模型训练，将数据集划分为训练集:验证集为8:2，使用训练集数据进行训练，同时在验证集数据上进行评估，保存在验证集数据上评价指标（trainer.monitor: &#8220;accuracy&#8221;）更好的模型和参数到相应文件夹（trainer.saver: &#8221;./experiments&#8221;）中的<code class="docutils literal"><span class="pre">models</span></code>文件夹中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>ENAS先进行网络结构搜索，搜索<code class="docutils literal"><span class="pre">trainer.max_number_of_epoches_in_search</span></code>个epoches数目，搜索结束后挑选结果最好的<code class="docutils literal"><span class="pre">trainer.top_k_candidates</span></code>个网络结构，并分别训练<code class="docutils literal"><span class="pre">trainer.max_number_of_epoches_in_fixed</span></code>个epoches数目，训练过程中在验证集上进行评估，当结果更好时保存模型参数，训练过程中部分日志如下:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Hyper</span> <span class="o">&amp;</span> <span class="nx">Training</span> <span class="nx">Search</span> <span class="nx">stage</span>
+<span class="p">...</span>
+<span class="nx">Running</span> <span class="nx">will</span> <span class="nx">end</span> <span class="nx">at</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">20</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">21.559</span>  <span class="nx">acc</span><span class="o">:</span> <span class="mf">0.641</span>  <span class="nx">epoch</span><span class="o">:</span> <span class="mf">0.000</span>    <span class="nx">l2</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.127</span>  <span class="nx">ch_step</span><span class="o">:</span> <span class="mf">0.000</span>  <span class="nx">child</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.779</span>
+<span class="p">(</span><span class="s1">&#39;[3 0 1 2 1 1]&#39;</span><span class="p">,</span> <span class="mf">0.265625</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;[0 4 1 2 0 1]&#39;</span><span class="p">,</span> <span class="mf">0.375</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;[4 4 1 4 1 1]&#39;</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;[4 0 1 0 1 1]&#39;</span><span class="p">,</span> <span class="mf">0.28125</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="p">(</span><span class="s1">&#39;[0 2 0 3 0 0]&#39;</span><span class="p">,</span> <span class="mf">0.328125</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;[1 0 0 3 0 1]&#39;</span><span class="p">,</span> <span class="mf">0.265625</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;[0 3 0 2 0 0]&#39;</span><span class="p">,</span> <span class="mf">0.296875</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;[3 1 0 2 0 1]&#39;</span><span class="p">,</span> <span class="mf">0.28125</span><span class="p">)</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">10</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">10</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">801.774</span> <span class="nx">acc</span><span class="o">:</span> <span class="mf">0.938</span>  <span class="nx">epoch</span><span class="o">:</span> <span class="mf">5.000</span>    <span class="nx">l2</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.142</span>  <span class="nx">ch_step</span><span class="o">:</span> <span class="mf">0.000</span>  <span class="nx">child</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.275</span>
+<span class="p">...</span>
+<span class="nx">enas</span> <span class="nx">train</span> <span class="nx">time</span> <span class="o">:</span> <span class="mf">0.30</span>       <span class="nx">minutes</span><span class="p">.</span>
+
+<span class="nx">training</span> <span class="p">[</span><span class="mf">2</span> <span class="mf">4</span> <span class="mf">0</span> <span class="mf">0</span> <span class="mf">0</span> <span class="mf">0</span><span class="p">]</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">0</span> <span class="nx">into</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">enas</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">enas_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_103754</span><span class="o">/</span><span class="mf">1</span><span class="o">/</span><span class="nx">model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+
+<span class="nx">Running</span> <span class="nx">will</span> <span class="nx">end</span> <span class="nx">at</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">100</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">45.455</span>  <span class="nx">train_acc</span><span class="o">:</span> <span class="mf">0.641</span>    <span class="nx">child</span> <span class="nx">l2</span> <span class="nx">loss</span><span class="o">::</span> <span class="mf">0.230</span>   <span class="nx">child</span> <span class="nx">loss</span><span class="o">::</span> <span class="mf">0.784</span>
+<span class="p">{</span><span class="s1">&#39;valid_acc&#39;</span><span class="o">:</span> <span class="mf">0.734375</span><span class="p">},</span> <span class="mf">0</span>
+<span class="nx">old</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span> <span class="ow">new</span><span class="o">:</span> <span class="mf">0.734375</span>
+<span class="p">[</span><span class="nx">VALIDATION</span> <span class="nx">METRICS</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">1</span> <span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">0.734</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">2</span> <span class="nx">into</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">enas</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">enas_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_103754</span><span class="o">/</span><span class="mf">1</span><span class="nx">_1</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">{</span><span class="s1">&#39;valid_acc&#39;</span><span class="o">:</span> <span class="mf">0.625</span><span class="p">},</span> <span class="mf">0.734375</span>
+<span class="p">[</span><span class="nx">VALIDATION</span> <span class="nx">METRICS</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">3</span> <span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">0.625</span>
+<span class="p">...</span>
+<span class="nx">training</span> <span class="p">[</span><span class="mf">1</span> <span class="mf">4</span> <span class="mf">0</span> <span class="mf">1</span> <span class="mf">1</span> <span class="mf">0</span><span class="p">]</span>
+<span class="p">...</span>
+<span class="nx">training</span> <span class="nx">arc</span><span class="o">:</span> <span class="p">[</span><span class="mf">1</span> <span class="mf">4</span> <span class="mf">0</span> <span class="mf">1</span> <span class="mf">1</span> <span class="mf">0</span><span class="p">],</span> <span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">1.0</span>
+<span class="nx">Best</span> <span class="nx">arc</span><span class="o">:</span><span class="p">[</span><span class="mf">1</span> <span class="mf">4</span> <span class="mf">0</span> <span class="mf">1</span> <span class="mf">1</span> <span class="mf">0</span><span class="p">],</span> <span class="nx">eval_acc</span><span class="o">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="nx">max_k</span><span class="o">:</span><span class="mf">2</span>
+</pre></div>
+</div>
+<p>日志中会打印候选的网络结构、训练过程中最佳acc及对应的网络结构。</p>
+</li>
+</ol>
+<ol>
+<li><p class="first">评估模型。根据上步所训练的模型结构及模型参数，评估在<code class="docutils literal"><span class="pre">data_evaluate</span></code>上表现，分类模型输出<code class="docutils literal"><span class="pre">accuracy</span></code>值和<code class="docutils literal"><span class="pre">confusion</span> <span class="pre">matrix</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>部分日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Evaluation</span> <span class="nx">stage</span>
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">enas</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">enas_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_103754</span><span class="o">/</span><span class="mf">2</span><span class="nx">_1</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">54</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">1</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">57.737</span>   <span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">3</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">53.513</span>   <span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">5</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">63.091</span>   <span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">7</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">57.627</span>   <span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">9</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">63.674</span>   <span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">1.000</span>
+<span class="nx">valid_acc</span><span class="o">:</span> <span class="mf">1.0</span>       <span class="p">[</span><span class="mf">10</span> <span class="nx">batches</span><span class="p">]</span>
+<span class="nx">Confusion</span> <span class="nx">matrix</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/enas_confusion_matrix.pdf&#39;</span>
+</pre></div>
+</div>
+<p>得到的confusion matrix图如下所示，图数字大小会根据类别数多少进行调整，x轴为真值，y轴为预测值：</p>
+<p><img src="../images/enas_confusion_matrix.png" style="zoom:75%;" /></p>
+</li>
+</ol>
+<ol>
+<li><p class="first">预测数据。根据第3步所训练的模型结构及模型参数，对于给定features数据，分类问题预测其类别及各个类别的softmax值，并输出到对应的csv文件中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Prediction</span> <span class="nx">stage</span> 
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">enas</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">enas_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_103754</span><span class="o">/</span><span class="mf">2</span><span class="nx">_1</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">54</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">9</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">63.824</span>
+ <span class="p">[</span><span class="mf">10</span> <span class="nx">batches</span><span class="p">]</span>
+<span class="nx">Predicted</span> <span class="nx">values</span> <span class="nx">file</span> <span class="nx">is</span> <span class="s2">&quot;experiments/enas/output_files/enas_demo/1225_103754/enas_predicted_result_data_frame.csv&quot;</span>
+</pre></div>
+</div>
+<p>如日志所示，将输出预测的target文件，文件第一列<code class="docutils literal"><span class="pre">predicted_result</span></code>，第二列<code class="docutils literal"><span class="pre">softmax_value</span></code>为各个类别的softmax值。</p>
+</li>
+<li><p class="first">变量重要性排序。根据第3步所训练的模型结构及模型参数，对变量重要性进行排序，输出各个类别变量重要性，<code class="docutils literal"><span class="pre">explainer</span></code>中需要指定变量名对应的文件。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">explain</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>对模型变量重要性进行排序，输出日志如下：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">Initialize</span> <span class="nx">Shap</span> <span class="kd">class</span>
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">experiments</span><span class="o">/</span><span class="nx">enas</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">enas_demo</span><span class="o">/</span><span class="mf">1225</span><span class="nx">_103754</span><span class="o">/</span><span class="mf">2</span><span class="nx">_1</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">54</span>
+<span class="o">----------</span><span class="nx">Computing</span> <span class="nx">shap_values</span> <span class="kd">with</span> <span class="mf">80</span>  <span class="nx">examples</span> <span class="nx">and</span> <span class="mf">23361</span> <span class="nx">features</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/_dot0_feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/_dot1_feature_importance_summary.pdf&#39;</span>
+<span class="nx">features</span> <span class="nx">orders</span> <span class="ow">in</span> <span class="nx">all</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="nx">saved</span> <span class="ow">in</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/_features_orders.csv&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="k">for</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/class_1feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="k">for</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/class_0feature_importance_summary.pdf&#39;</span>
+<span class="nx">importance</span> <span class="nx">plot</span> <span class="nx">is</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/_barTotal_feature_importance_summary.pdf&#39;</span>
+<span class="nx">shap_values</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/_class_0shap_values.csv&#39;</span>
+<span class="nx">shap_values</span> <span class="nx">every</span> <span class="nx">classes</span> <span class="nx">is</span> <span class="s1">&#39;experiments/enas/output_files/enas_demo/1225_103754/_class_1shap_values.csv&#39;</span>
+</pre></div>
+</div>
+<p>运行结束后将输出各个类别的变量重要性条图和点图和总的变量重要性图，如下所示：</p>
+<p>总的变量重要性图：</p>
+<p><img alt="" src="../_images/enas_total_feature_importance_summary.png" /></p>
+<p>class 1变量重要性条图：</p>
+<p><img alt="" src="../_images/enas_class1_feature_importance_summary_bar.png" /></p>
+<p>class 0变量重要性条图：</p>
+<p><img alt="" src="../_images/enas_class0_feature_importance_summary_bar.png" /></p>
+<p>class 1变量重要性点图：</p>
+<p><img alt="" src="../_images/enas_class1_feature_importance_summary_dot.png" /></p>
+<p>class 0变量重要性点图：</p>
+<p><img alt="" src="../_images/enas_class0_feature_importance_summary_dot.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="res-vae">
+<span id="res-vae"></span><h2>Res-VAE案例<a class="headerlink" href="#res-vae" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="##配置文件">配置文件</a></li>
+<li><a class="reference external" href="##使用">使用</a></li>
+</ul>
+<p>Res-VAE案例以<code class="docutils literal"><span class="pre">little_exp.tsv</span></code>数据为例，<code class="docutils literal"><span class="pre">features</span></code>数据<code class="docutils literal"><span class="pre">little_exp.tsv</span></code>包含100个samples，23361个features。对该数据进行Res-VAE，提取其关键特征进行降维，输出latent vector可用于进一步聚类分析。</p>
+<p><img alt="" src="../_images/vae.png" /></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; wc little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span>  <span class="c1"># 打印行数</span>
+<span class="m">100</span>
+&gt; sed -n <span class="s1">&#39;1,1p&#39;</span> little_exp.tsv <span class="p">|</span> awk <span class="s1">&#39;{print NF}&#39;</span>  <span class="c1"># 打印列数</span>
+<span class="m">23361</span>
+</pre></div>
+</div>
+<p>首先，准备配置文件，具体如下所示：</p>
+<div class="section" id="">
+<span id="id18"></span><h3>配置文件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;res_vae_demo&quot;</span><span class="p">,</span>   <span class="c1">// Project name</span>
+
+    <span class="s2">&quot;model&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;VAE&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_train&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span><span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>  <span class="c1">//数据所在文件夹，推荐使用绝对路径</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>  <span class="c1">//features文件名</span>
+            <span class="s2">&quot;validation_split&quot;</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span>   <span class="c1">//验证集比例</span>
+            <span class="s2">&quot;shuffle&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>   <span class="c1">//训练时是否对数据进行打乱操作</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>    <span class="c1">//数据分隔符，default: &#39;\t&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;data_predict&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;DataLoader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;data_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data_autogenome/data_test&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;features_file&quot;</span><span class="o">:</span> <span class="s2">&quot;little_exp.tsv&quot;</span><span class="p">,</span>    <span class="c1">//用于单独评估的features文件名</span>
+            <span class="s2">&quot;delimiter&quot;</span><span class="o">:</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;input_fn&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;num_threads&quot;</span><span class="o">:</span> <span class="mf">16</span>    <span class="c1">//读取数据线程数</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;trainer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;hyper_selector&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span> <span class="mf">64</span><span class="p">,</span>
+        <span class="s2">&quot;save_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;./experiments/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;monitor&quot;</span><span class="o">:</span> <span class="s2">&quot;loss&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;selected_mode&quot;</span><span class="o">:</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;num_gpus&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+        <span class="s2">&quot;select_by_eval&quot;</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span>
+        <span class="s2">&quot;patience&quot;</span><span class="o">:</span> <span class="mf">30</span><span class="p">,</span>
+        <span class="s2">&quot;pre_train_epoch&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>  <span class="c1">//超参搜索阶段，每组参数训练的epoch数目</span>
+        <span class="s2">&quot;max_steps&quot;</span><span class="o">:</span> <span class="mf">64000</span>  <span class="c1">//训练最大运行的steps，当patience很大时则会训练max_steps步，max_steps*batch_size/num_samples为对应训练的epoch数</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;optimizer&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;adam&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;predictor&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;log_every_n_steps&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+        <span class="s2">&quot;output_every_n_steps&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+        <span class="s2">&quot;max_number_of_steps&quot;</span><span class="o">:</span> <span class="mf">20</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="o">:</span> <span class="mf">64</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;param_spec&quot;</span><span class="o">:</span> <span class="p">{</span>   <span class="c1">//模型初始参数</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;origin_params&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;VAE&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;keep_prob&quot;</span><span class="o">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                <span class="s2">&quot;start_size&quot;</span><span class="o">:</span> <span class="mf">1024</span><span class="p">,</span>
+                <span class="s2">&quot;decay_ratio_list&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimizer_param&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;learning_rate&quot;</span><span class="o">:</span> <span class="mf">0.01</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;hyper_param_spec&quot;</span><span class="o">:</span> <span class="p">{</span>   <span class="c1">//超参搜索空间</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;hyper_params&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;VAE&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;keep_prob&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                <span class="s2">&quot;start_size&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">1024</span><span class="p">,</span> <span class="mf">512</span><span class="p">,</span> <span class="mf">256</span><span class="p">],</span>
+                <span class="s2">&quot;num_layers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">5</span><span class="p">,</span> <span class="mf">4</span><span class="p">,</span> <span class="mf">3</span><span class="p">],</span>
+                <span class="s2">&quot;decay_ratio&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimizer_param&quot;</span><span class="o">:</span> <span class="p">{</span>
+
+            <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id19"></span><h3>使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>AutoGenome的使用主要包含以下几步：</p>
+<ol>
+<li><p class="first">导入autogenome包</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">autogenome</span> <span class="k">as</span> <span class="nn">ag</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">读取配置文件，配置文件如上述所示</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="s2">&quot;/data_autogenome/data_test/json_hub_simple/densenet_test.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>配置文件读取成功后，会打印如下日志：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>==========================================================
+----------Use the config from /data_autogenome/data_test/json_hub_simple/resvae_test.json
+----------Initialize data_loader class
+----------Initialize Optimizer
+----------Initialize hyper_param_spec class 
+----------Initialize param_spec class 
+==========================================================
+#################################################################################
+#                                                                               #
+#                                                                               #
+         Ready to search the best hyper parameters for VAE model            
+#                                                                               #
+#                                                                               #
+#################################################################################
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">训练模型。根据配置文件中训练参数进行模型训练，将数据集划分为训练集:验证集为8:2，使用训练集数据进行训练，同时可选择是否在验证集数据上进行评估，保存在评价指标（trainer.monitor: &#8220;loss&#8221;）更小的模型和参数到相应文件夹（trainer.saver: &#8221;./experiments&#8221;）中的<code class="docutils literal"><span class="pre">models</span></code>文件夹中</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>训练过程中，先将模型初始化为<code class="docutils literal"><span class="pre">param_spec</span></code>中参数，然后在超参搜索空间<code class="docutils literal"><span class="pre">hyper_param_spec</span></code>中进行参数搜索，每一种参数组合会训练一定的epoch数（trainer.pre_train_epoch），挑选结果最好的作为最终模型结构参数并进行进一步训练，训练过程中在验证集上进行评估，当结果更好时保存模型参数，训练过程中一段时间效果没有再提升，则停止训练。</p>
+<p>训练过程中部分日志如下:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Hyper</span> <span class="o">&amp;</span> <span class="nx">Training</span> <span class="nx">Search</span> <span class="nx">stage</span>
+<span class="p">...</span>
+<span class="nx">Pretraining</span><span class="o">:</span> <span class="nx">search</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">decay_ratio_list</span><span class="p">,</span> <span class="nx">search</span> <span class="nx">value</span> <span class="nx">is</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="nx">LR_RANGE_TEST</span> <span class="nx">From</span> <span class="nx">begin_lr</span> <span class="mf">0.000010</span> <span class="nx">To</span> <span class="nx">end_lr</span> <span class="mf">0.100000</span><span class="p">,</span> 
+<span class="nx">Graph</span> <span class="nx">was</span> <span class="nx">finalized</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">From</span> <span class="o">/</span><span class="nx">opt</span><span class="o">/</span><span class="nx">conda</span><span class="o">/</span><span class="nx">envs</span><span class="o">/</span><span class="nx">py2</span><span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">python2</span><span class="mf">.7</span><span class="o">/</span><span class="nx">site</span><span class="o">-</span><span class="nx">packages</span><span class="o">/</span><span class="nx">tensorflow</span><span class="o">/</span><span class="nx">python</span><span class="o">/</span><span class="nx">training</span><span class="o">/</span><span class="nx">monitored_session</span><span class="p">.</span><span class="nx">py</span><span class="o">:</span><span class="mf">804</span><span class="o">:</span> <span class="nx">start_queue_runners</span> <span class="p">(</span><span class="kr">from</span> <span class="nx">tensorflow</span><span class="p">.</span><span class="nx">python</span><span class="p">.</span><span class="nx">training</span><span class="p">.</span><span class="nx">queue_runner_impl</span><span class="p">)</span> <span class="nx">is</span> <span class="nx">deprecated</span> <span class="nx">and</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">removed</span> <span class="ow">in</span> <span class="nx">a</span> <span class="nx">future</span> <span class="nx">version</span><span class="p">.</span>
+<span class="nx">Instructions</span> <span class="k">for</span> <span class="nx">updating</span><span class="o">:</span>
+<span class="nx">To</span> <span class="nx">construct</span> <span class="nx">input</span> <span class="nx">pipelines</span><span class="p">,</span> <span class="nx">use</span> <span class="nx">the</span> <span class="sb">`tf.data`</span> <span class="nx">module</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">will</span> <span class="nx">end</span> <span class="nx">at</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">200</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">1.066</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.500</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.491</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.009</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">10</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">10</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.948</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">4.740</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">4.730</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.009</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">20</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">20</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.905</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">4.479</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">4.469</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">30</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">30</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.958</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">4.194</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">4.184</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">40</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">40</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.937</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">5.517</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">5.507</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">50</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">50</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.972</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">5.426</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">5.417</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">60</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">60</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">5.000</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">5.974</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">5.964</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">70</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">70</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.952</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">5.954</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">5.944</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">80</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">80</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.978</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">5.019</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">5.009</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">90</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">90</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.970</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">7.211</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">7.201</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">100</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">100</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.895</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.998</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.988</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.010</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">110</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">110</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.945</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.677</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.666</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">120</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">120</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.986</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.008</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">5.997</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">130</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">130</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.887</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.592</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.582</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">140</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">140</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.960</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">7.500</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">7.489</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">150</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">150</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.953</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">7.281</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">7.271</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">160</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">160</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.930</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.914</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.904</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">170</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">170</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.935</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">7.423</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">7.412</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">180</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">180</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.948</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">7.145</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">7.134</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">190</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">190</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">4.943</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.629</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.619</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.011</span>
+<span class="p">...</span>
+<span class="nx">The</span> <span class="nx">model</span> <span class="nx">and</span> <span class="nx">events</span> <span class="nx">are</span> <span class="nx">saved</span> <span class="ow">in</span> <span class="nx">data_autogenome</span><span class="o">/</span><span class="nx">data_test</span><span class="o">/</span><span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">res_vae_demo</span><span class="o">/</span><span class="mf">1105</span><span class="nx">_013120</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.017883212500000002</span><span class="nx">_decay_ratio_list_</span><span class="p">(</span><span class="mf">0.60.60.6</span><span class="p">)</span><span class="nx">_start_size_256_keep_prob_1</span><span class="mf">.0</span>
+<span class="nx">Graph</span> <span class="nx">was</span> <span class="nx">finalized</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Running</span> <span class="nx">will</span> <span class="nx">end</span> <span class="nx">at</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">64000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">0</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">2.123</span>   <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.988</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.987</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.001</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">5</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">5</span><span class="p">)</span>  <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">10.490</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.911</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.910</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.001</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">10</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">10</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">36.250</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">6.771</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">6.770</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.001</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">15</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">15</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">20.972</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">4.897</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">4.896</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.001</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">20</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">20</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">28.025</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">3.996</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">3.995</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.001</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">25</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">25</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">77.930</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">2.605</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">2.604</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.001</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">30</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">30</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">77.654</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">2.056</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">2.056</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.000</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">35</span><span class="p">(</span><span class="nb">global</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">35</span><span class="p">)</span>    <span class="nx">sample</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">77.751</span>  <span class="nx">loss</span><span class="o">:</span> <span class="mf">1.682</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">1.681</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">0.001</span>
+<span class="p">[</span><span class="nx">Plateau</span> <span class="nx">Metric</span><span class="p">]</span> <span class="nx">step</span><span class="o">:</span> <span class="mf">39</span> <span class="nx">loss</span><span class="o">:</span> <span class="mf">1700371756103124513701494784.000</span> <span class="nx">reconstruct_loss</span><span class="o">:</span> <span class="mf">1696594689330963519620775936.000</span> <span class="nx">KLD_loss</span><span class="o">:</span> <span class="mf">3777113350190000207036416.000</span>
+<span class="nx">Saving</span> <span class="nx">checkpoints</span> <span class="k">for</span> <span class="mf">40</span> <span class="nx">into</span> <span class="nx">data_autogenome</span><span class="o">/</span><span class="nx">data_test</span><span class="o">/</span><span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">res_vae_demo</span><span class="o">/</span><span class="mf">1105</span><span class="nx">_013120</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.017883212500000002</span><span class="nx">_decay_ratio_list_</span><span class="p">(</span><span class="mf">0.60.60.6</span><span class="p">)</span><span class="nx">_start_size_256_keep_prob_1</span><span class="mf">.0</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="p">.</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol>
+<li><p class="first">预测数据。根据第3步所训练的模型结构及模型参数，对于给定features数据，输出<code class="docutils literal"><span class="pre">latent</span> <span class="pre">vector</span></code>和<code class="docutils literal"><span class="pre">reconstruction</span> <span class="pre">data</span></code>数据</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>日志如下所示：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">----------</span><span class="nx">In</span> <span class="nx">Prediction</span> <span class="nx">stage</span> 
+<span class="nx">Restoring</span> <span class="nx">parameters</span> <span class="kr">from</span> <span class="nx">data_autogenome</span><span class="o">/</span><span class="nx">data_test</span><span class="o">/</span><span class="nx">experiments</span><span class="o">/</span><span class="nx">models</span><span class="o">/</span><span class="nx">res_vae_demo</span><span class="o">/</span><span class="mf">1105</span><span class="nx">_013120</span><span class="o">/</span><span class="nx">hyper_lr0</span><span class="mf">.017883212500000002</span><span class="nx">_decay_ratio_list_</span><span class="p">(</span><span class="mf">0.60.60.6</span><span class="p">)</span><span class="nx">_start_size_256_keep_prob_1</span><span class="mf">.0</span><span class="o">/</span><span class="nx">best_model</span><span class="p">.</span><span class="nx">ckpt</span><span class="o">-</span><span class="mf">1040</span>
+<span class="nx">Running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">Done</span> <span class="nx">running</span> <span class="nx">local_init_op</span><span class="p">.</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">9</span>  <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">69.090</span>
+<span class="nx">step</span><span class="o">:</span> <span class="mf">19</span> <span class="nx">batch</span><span class="o">/</span><span class="nx">sec</span><span class="o">:</span> <span class="mf">69.454</span>
+ <span class="p">[</span><span class="mf">20</span> <span class="nx">batches</span><span class="p">]</span>
+<span class="nx">latent_vector</span> <span class="nx">and</span> <span class="nx">reconstruction</span> <span class="nx">x</span>  <span class="nx">values</span> <span class="nx">file</span> <span class="nx">is</span><span class="o">:</span> <span class="s2">&quot;data_autogenome/data_test/experiments/output_files/res_vae_demo/1105_013120/res_vae_predicted_latent_vector_data_frame.csv&quot;</span> <span class="nx">and</span> <span class="s2">&quot;data_autogenome/data_test/experiments/output_files/res_vae_demo/1105_013120/res_vae_predicted_recon_x_data_frame.csv&quot;</span>
+</pre></div>
+</div>
+<p>得到的latent vector数据可以进一步聚类，与其他方希方法比较，如下所示：</p>
+<p><img alt="" src="../_images/vae_vs.PNG" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="">
+<span id="id20"></span><h2>附录<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>AutoGenome文章：<a class="reference external" href="https://www.biorxiv.org/content/10.1101/842526v1">AutoGenome: An AutoML Tool for Genomic Research</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../AutoOmics/AutoOmics.html" class="btn btn-neutral float-right" title="AutoOmics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Welcome to autogenome’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2021, Huawei.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
